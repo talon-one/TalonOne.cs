@@ -64,7 +64,7 @@ namespace TalonOne.Model
         /// <param name="revisionFrontendState">The campaign revision state displayed in the Campaign Manager..</param>
         /// <param name="activeRevisionId">ID of the revision that was last activated on this campaign. .</param>
         /// <param name="activeRevisionVersionId">ID of the revision version that is active on the campaign. .</param>
-        /// <param name="version">Incrementing number representing how many revisions have been activated on this campaign, starts from 0 for a new campaign. .</param>
+        /// <param name="version">Incrementing number representing how many revisions have been activated on this campaign. Starts from &#x60;0&#x60; for a new campaign. .</param>
         /// <param name="currentRevisionId">ID of the revision currently being modified for the campaign. .</param>
         /// <param name="currentRevisionVersionId">ID of the latest version applied on the current revision. .</param>
         /// <param name="stageRevision">Flag for determining whether we use current revision when sending requests with staging API key.  (default to false).</param>
@@ -94,9 +94,9 @@ namespace TalonOne.Model
         public long ActiveRevisionVersionId { get; set; }
 
         /// <summary>
-        /// Incrementing number representing how many revisions have been activated on this campaign, starts from 0 for a new campaign. 
+        /// Incrementing number representing how many revisions have been activated on this campaign. Starts from &#x60;0&#x60; for a new campaign. 
         /// </summary>
-        /// <value>Incrementing number representing how many revisions have been activated on this campaign, starts from 0 for a new campaign. </value>
+        /// <value>Incrementing number representing how many revisions have been activated on this campaign. Starts from &#x60;0&#x60; for a new campaign. </value>
         [DataMember(Name="version", EmitDefaultValue=false)]
         public long Version { get; set; }
 

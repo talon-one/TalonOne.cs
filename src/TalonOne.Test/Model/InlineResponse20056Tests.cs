@@ -58,20 +58,20 @@ namespace TalonOne.Test
 
 
         /// <summary>
-        /// Test the property 'Catalog'
+        /// Test the property 'HasMore'
         /// </summary>
         [Fact]
-        public void CatalogTest()
+        public void HasMoreTest()
         {
-            // TODO unit test for the property 'Catalog'
+            // TODO unit test for the property 'HasMore'
         }
         /// <summary>
-        /// Test the property 'Loyalty'
+        /// Test the property 'Data'
         /// </summary>
         [Fact]
-        public void LoyaltyTest()
+        public void DataTest()
         {
-            // TODO unit test for the property 'Loyalty'
+            // TODO unit test for the property 'Data'
         }
 
     }

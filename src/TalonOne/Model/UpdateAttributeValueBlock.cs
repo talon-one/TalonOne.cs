@@ -107,7 +107,7 @@ namespace TalonOne.Model
         /// <param name="attribute">attribute (required).</param>
         /// <param name="value">The value of the attribute. Omitted when operator is set to &#x60;toggle&#x60;..</param>
         /// <param name="target">target (required).</param>
-        public UpdateAttributeValueBlock(string type = default(string), OperatorEnum _operator = default(OperatorEnum), UpdateAttributeValueBlockAttribute attribute = default(UpdateAttributeValueBlockAttribute), Object value = default(Object), UpdateAttributeValueBlockTarget target = default(UpdateAttributeValueBlockTarget))
+        public UpdateAttributeValueBlock(string type = default(string), OperatorEnum _operator = default(OperatorEnum), AttributeBlockReference attribute = default(AttributeBlockReference), Object value = default(Object), UpdateAttributeValueBlockTarget target = default(UpdateAttributeValueBlockTarget))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for UpdateAttributeValueBlock and cannot be null");
@@ -144,7 +144,7 @@ namespace TalonOne.Model
         /// Gets or Sets Attribute
         /// </summary>
         [DataMember(Name="attribute", EmitDefaultValue=false)]
-        public UpdateAttributeValueBlockAttribute Attribute { get; set; }
+        public AttributeBlockReference Attribute { get; set; }
 
         /// <summary>
         /// The value of the attribute. Omitted when operator is set to &#x60;toggle&#x60;.

@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="hasMore">hasMore.</param>
         /// <param name="data">data (required).</param>
-        public InlineResponse20052(bool hasMore = default(bool), List<Achievement> data = default(List<Achievement>))
+        public InlineResponse20052(bool hasMore = default(bool), List<ApplicationCIF> data = default(List<ApplicationCIF>))
         {
             // to ensure "data" is required (not null)
             this.Data = data ?? throw new ArgumentNullException("data is a required property for InlineResponse20052 and cannot be null");
@@ -58,7 +58,7 @@ namespace TalonOne.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<Achievement> Data { get; set; }
+        public List<ApplicationCIF> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

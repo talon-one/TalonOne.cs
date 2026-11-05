@@ -34,15 +34,16 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RevisionActivation" /> class.
         /// </summary>
-        /// <param name="activateAt">activateAt.</param>
+        /// <param name="activateAt">Timestamp when the revision will be activated..</param>
         public RevisionActivation(DateTime activateAt = default(DateTime))
         {
             this.ActivateAt = activateAt;
         }
         
         /// <summary>
-        /// Gets or Sets ActivateAt
+        /// Timestamp when the revision will be activated.
         /// </summary>
+        /// <value>Timestamp when the revision will be activated.</value>
         [DataMember(Name="activateAt", EmitDefaultValue=false)]
         public DateTime ActivateAt { get; set; }
 

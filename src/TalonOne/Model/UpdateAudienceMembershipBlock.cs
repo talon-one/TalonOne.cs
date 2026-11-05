@@ -97,7 +97,7 @@ namespace TalonOne.Model
         /// <param name="_operator">The action to perform. (required).</param>
         /// <param name="profile">The customer profile to add or remove from the audience. &#x60;Current&#x60; targets the customer in the current session; &#x60;Advocate&#x60; targets the person who invited their friend via referral program. (required).</param>
         /// <param name="audience">audience (required).</param>
-        public UpdateAudienceMembershipBlock(string type = default(string), OperatorEnum _operator = default(OperatorEnum), ProfileEnum profile = default(ProfileEnum), UpdateAudienceMembershipBlockAudience audience = default(UpdateAudienceMembershipBlockAudience))
+        public UpdateAudienceMembershipBlock(string type = default(string), OperatorEnum _operator = default(OperatorEnum), ProfileEnum profile = default(ProfileEnum), AudienceBlockReference audience = default(AudienceBlockReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for UpdateAudienceMembershipBlock and cannot be null");
@@ -132,7 +132,7 @@ namespace TalonOne.Model
         /// Gets or Sets Audience
         /// </summary>
         [DataMember(Name="audience", EmitDefaultValue=false)]
-        public UpdateAudienceMembershipBlockAudience Audience { get; set; }
+        public AudienceBlockReference Audience { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

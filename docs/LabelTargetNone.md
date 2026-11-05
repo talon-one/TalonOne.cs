@@ -1,5 +1,5 @@
 # TalonOne.Model.LabelTargetNone
-Represents the target type when no entity is selected.
+Target type when no specific audience is selected. Targets all customers who are not members of an audience.
 ## Properties
 
 Name | Type | Description | Notes

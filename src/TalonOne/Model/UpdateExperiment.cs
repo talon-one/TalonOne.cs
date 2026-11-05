@@ -78,23 +78,23 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateExperiment" /> class.
         /// </summary>
-        /// <param name="isVariantAssignmentExternal">The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally.  (required).</param>
+        /// <param name="isVariantAssignmentExternal">Deprecated and ignored. The assignment type is set at experiment creation and cannot be changed. Use &#x60;assignmentType&#x60; when creating an experiment instead. .</param>
         /// <param name="campaign">campaign (required).</param>
         /// <param name="goalType">The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used. If omitted, the current value is preserved. .</param>
         /// <param name="goalDescription">A description of the experiment goal. Provides context for the AI summary and helps it interpret the outcome of the experiment against the stated goal. If omitted, the current value is preserved. .</param>
         public UpdateExperiment(bool isVariantAssignmentExternal = default(bool), UpdateCampaign campaign = default(UpdateCampaign), GoalTypeEnum? goalType = default(GoalTypeEnum?), string goalDescription = default(string))
         {
-            this.IsVariantAssignmentExternal = isVariantAssignmentExternal;
             // to ensure "campaign" is required (not null)
             this.Campaign = campaign ?? throw new ArgumentNullException("campaign is a required property for UpdateExperiment and cannot be null");
+            this.IsVariantAssignmentExternal = isVariantAssignmentExternal;
             this.GoalType = goalType;
             this.GoalDescription = goalDescription;
         }
         
         /// <summary>
-        /// The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally. 
+        /// Deprecated and ignored. The assignment type is set at experiment creation and cannot be changed. Use &#x60;assignmentType&#x60; when creating an experiment instead. 
         /// </summary>
-        /// <value>The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally. </value>
+        /// <value>Deprecated and ignored. The assignment type is set at experiment creation and cannot be changed. Use &#x60;assignmentType&#x60; when creating an experiment instead. </value>
         [DataMember(Name="isVariantAssignmentExternal", EmitDefaultValue=false)]
         public bool IsVariantAssignmentExternal { get; set; }
 

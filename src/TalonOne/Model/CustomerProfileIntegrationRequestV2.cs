@@ -107,12 +107,14 @@ namespace TalonOne.Model
         /// <param name="evaluableCampaignIds">When using the &#x60;dry&#x60; query parameter, use this property to list the campaign to be evaluated by the Rule Engine.  These campaigns will be evaluated, even if they are disabled, allowing you to test specific campaigns before activating them. .</param>
         /// <param name="responseContent">Extends the response with the chosen data entities. Use this property to get as much data back as needed from one request instead of sending extra requests to other endpoints. .</param>
         /// <param name="audiencesChanges">audiencesChanges.</param>
-        public CustomerProfileIntegrationRequestV2(Object attributes = default(Object), List<long> evaluableCampaignIds = default(List<long>), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>), ProfileAudiencesChanges audiencesChanges = default(ProfileAudiencesChanges))
+        /// <param name="rewardIntegrationIds">The integration IDs of the unlocked rewards that can be used in this request. .</param>
+        public CustomerProfileIntegrationRequestV2(Object attributes = default(Object), List<long> evaluableCampaignIds = default(List<long>), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>), ProfileAudiencesChanges audiencesChanges = default(ProfileAudiencesChanges), List<string> rewardIntegrationIds = default(List<string>))
         {
             this.Attributes = attributes;
             this.EvaluableCampaignIds = evaluableCampaignIds;
             this.ResponseContent = responseContent;
             this.AudiencesChanges = audiencesChanges;
+            this.RewardIntegrationIds = rewardIntegrationIds;
         }
         
         /// <summary>
@@ -136,6 +138,13 @@ namespace TalonOne.Model
         public ProfileAudiencesChanges AudiencesChanges { get; set; }
 
         /// <summary>
+        /// The integration IDs of the unlocked rewards that can be used in this request. 
+        /// </summary>
+        /// <value>The integration IDs of the unlocked rewards that can be used in this request. </value>
+        [DataMember(Name="rewardIntegrationIds", EmitDefaultValue=false)]
+        public List<string> RewardIntegrationIds { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -147,6 +156,7 @@ namespace TalonOne.Model
             sb.Append("  EvaluableCampaignIds: ").Append(EvaluableCampaignIds).Append("\n");
             sb.Append("  ResponseContent: ").Append(ResponseContent).Append("\n");
             sb.Append("  AudiencesChanges: ").Append(AudiencesChanges).Append("\n");
+            sb.Append("  RewardIntegrationIds: ").Append(RewardIntegrationIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -200,6 +210,12 @@ namespace TalonOne.Model
                     this.AudiencesChanges == input.AudiencesChanges ||
                     (this.AudiencesChanges != null &&
                     this.AudiencesChanges.Equals(input.AudiencesChanges))
+                ) && 
+                (
+                    this.RewardIntegrationIds == input.RewardIntegrationIds ||
+                    this.RewardIntegrationIds != null &&
+                    input.RewardIntegrationIds != null &&
+                    this.RewardIntegrationIds.SequenceEqual(input.RewardIntegrationIds)
                 );
         }
 
@@ -219,6 +235,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.ResponseContent.GetHashCode();
                 if (this.AudiencesChanges != null)
                     hashCode = hashCode * 59 + this.AudiencesChanges.GetHashCode();
+                if (this.RewardIntegrationIds != null)
+                    hashCode = hashCode * 59 + this.RewardIntegrationIds.GetHashCode();
                 return hashCode;
             }
         }

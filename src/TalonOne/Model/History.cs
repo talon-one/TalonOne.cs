@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="id">The ID of the historical price. (required).</param>
         /// <param name="observedAt">The date and time when the price was observed. (required).</param>
-        /// <param name="contextIds">The identifiers of the relevant context at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price.  (required).</param>
+        /// <param name="contextIds">The identifiers of the relevant context (the sales events, e.g. \&quot;Spring Sale\&quot;, \&quot;Summer Sale\&quot;) at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price.  (required).</param>
         /// <param name="price">Price of the item. (required).</param>
         /// <param name="metadata">metadata (required).</param>
         /// <param name="target">target (required).</param>
@@ -77,9 +77,9 @@ namespace TalonOne.Model
         public DateTime ObservedAt { get; set; }
 
         /// <summary>
-        /// The identifiers of the relevant context at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price. 
+        /// The identifiers of the relevant context (the sales events, e.g. \&quot;Spring Sale\&quot;, \&quot;Summer Sale\&quot;) at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price. 
         /// </summary>
-        /// <value>The identifiers of the relevant context at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price. </value>
+        /// <value>The identifiers of the relevant context (the sales events, e.g. \&quot;Spring Sale\&quot;, \&quot;Summer Sale\&quot;) at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price. </value>
         [DataMember(Name="contextIds", EmitDefaultValue=false)]
         public List<string> ContextIds { get; set; }
 

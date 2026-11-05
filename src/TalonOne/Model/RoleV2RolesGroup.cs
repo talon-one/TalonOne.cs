@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// RoleV2RolesGroup
+    /// A map of target entities to their permission sets.
     /// </summary>
     [DataContract]
     public partial class RoleV2RolesGroup :  IEquatable<RoleV2RolesGroup>, IValidatableObject
@@ -35,9 +35,9 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="RoleV2RolesGroup" /> class.
         /// </summary>
         /// <param name="applications">A map of the link between the Application, campaign, or draft campaign-related permission set and the Application ID the permissions apply to..</param>
-        /// <param name="loyaltyPrograms">A map of the link between the loyalty program-related permission set and the Application ID the permissions apply to..</param>
-        /// <param name="campaignAccessGroups">A map of the link between the campaign access group-related permission set and the Application ID the permissions apply to..</param>
-        /// <param name="account">Name of the account-level permission set.</param>
+        /// <param name="loyaltyPrograms">A map of the link between the loyalty program-related permission set and the loyalty program ID the permissions apply to..</param>
+        /// <param name="campaignAccessGroups">A map of the link between the campaign access group-related permission set and the campaign access group ID the permissions apply to..</param>
+        /// <param name="account">Name of the account-level permission set..</param>
         public RoleV2RolesGroup(Dictionary<string, RoleV2ApplicationDetails> applications = default(Dictionary<string, RoleV2ApplicationDetails>), Dictionary<string, string> loyaltyPrograms = default(Dictionary<string, string>), Dictionary<string, string> campaignAccessGroups = default(Dictionary<string, string>), string account = default(string))
         {
             this.Applications = applications;
@@ -54,23 +54,23 @@ namespace TalonOne.Model
         public Dictionary<string, RoleV2ApplicationDetails> Applications { get; set; }
 
         /// <summary>
-        /// A map of the link between the loyalty program-related permission set and the Application ID the permissions apply to.
+        /// A map of the link between the loyalty program-related permission set and the loyalty program ID the permissions apply to.
         /// </summary>
-        /// <value>A map of the link between the loyalty program-related permission set and the Application ID the permissions apply to.</value>
+        /// <value>A map of the link between the loyalty program-related permission set and the loyalty program ID the permissions apply to.</value>
         [DataMember(Name="loyaltyPrograms", EmitDefaultValue=false)]
         public Dictionary<string, string> LoyaltyPrograms { get; set; }
 
         /// <summary>
-        /// A map of the link between the campaign access group-related permission set and the Application ID the permissions apply to.
+        /// A map of the link between the campaign access group-related permission set and the campaign access group ID the permissions apply to.
         /// </summary>
-        /// <value>A map of the link between the campaign access group-related permission set and the Application ID the permissions apply to.</value>
+        /// <value>A map of the link between the campaign access group-related permission set and the campaign access group ID the permissions apply to.</value>
         [DataMember(Name="campaignAccessGroups", EmitDefaultValue=false)]
         public Dictionary<string, string> CampaignAccessGroups { get; set; }
 
         /// <summary>
-        /// Name of the account-level permission set
+        /// Name of the account-level permission set.
         /// </summary>
-        /// <value>Name of the account-level permission set</value>
+        /// <value>Name of the account-level permission set.</value>
         [DataMember(Name="account", EmitDefaultValue=false)]
         public string Account { get; set; }
 

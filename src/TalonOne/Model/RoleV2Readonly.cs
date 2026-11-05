@@ -34,16 +34,16 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RoleV2Readonly" /> class.
         /// </summary>
-        /// <param name="isReadonly">Identifies if the role is read-only. For read-only roles, you can only assign or unassign users. You cannot edit any other properties, such as the name, description, or permissions. The &#39;isReadonly&#39; property cannot be set for new or existing roles. It is reserved for predefined roles, such as the Talon.One support role. (default to false).</param>
+        /// <param name="isReadonly">Identifies if the role is read-only. For read-only roles, you can only assign or unassign users. You cannot edit any other properties, such as the name, description, or permissions. This property cannot be set for new or existing roles. It is reserved for predefined roles, such as the Talon.One support role. (default to false).</param>
         public RoleV2Readonly(bool isReadonly = false)
         {
             this.IsReadonly = isReadonly;
         }
         
         /// <summary>
-        /// Identifies if the role is read-only. For read-only roles, you can only assign or unassign users. You cannot edit any other properties, such as the name, description, or permissions. The &#39;isReadonly&#39; property cannot be set for new or existing roles. It is reserved for predefined roles, such as the Talon.One support role.
+        /// Identifies if the role is read-only. For read-only roles, you can only assign or unassign users. You cannot edit any other properties, such as the name, description, or permissions. This property cannot be set for new or existing roles. It is reserved for predefined roles, such as the Talon.One support role.
         /// </summary>
-        /// <value>Identifies if the role is read-only. For read-only roles, you can only assign or unassign users. You cannot edit any other properties, such as the name, description, or permissions. The &#39;isReadonly&#39; property cannot be set for new or existing roles. It is reserved for predefined roles, such as the Talon.One support role.</value>
+        /// <value>Identifies if the role is read-only. For read-only roles, you can only assign or unassign users. You cannot edit any other properties, such as the name, description, or permissions. This property cannot be set for new or existing roles. It is reserved for predefined roles, such as the Talon.One support role.</value>
         [DataMember(Name="isReadonly", EmitDefaultValue=false)]
         public bool IsReadonly { get; set; }
 

@@ -32,6 +32,33 @@ namespace TalonOne.Model
     public partial class TierWillDowngradeData :  IEquatable<TierWillDowngradeData>, IValidatableObject
     {
         /// <summary>
+        /// The source of the tier change, whether from a points change or boost.
+        /// </summary>
+        /// <value>The source of the tier change, whether from a points change or boost.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum SourceEnum
+        {
+            /// <summary>
+            /// Enum Boost for value: boost
+            /// </summary>
+            [EnumMember(Value = "boost")]
+            Boost = 1,
+
+            /// <summary>
+            /// Enum Points for value: points
+            /// </summary>
+            [EnumMember(Value = "points")]
+            Points = 2
+
+        }
+
+        /// <summary>
+        /// The source of the tier change, whether from a points change or boost.
+        /// </summary>
+        /// <value>The source of the tier change, whether from a points change or boost.</value>
+        [DataMember(Name="Source", EmitDefaultValue=false)]
+        public SourceEnum? Source { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="TierWillDowngradeData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -47,7 +74,9 @@ namespace TalonOne.Model
         /// <param name="pointsRequiredToRemain">The number of points needed for a customer to remain on the same tier. (required).</param>
         /// <param name="nextTier">The name of the customer&#39;s next tier..</param>
         /// <param name="tierExpirationDate">The date and time the tier expires..</param>
-        public TierWillDowngradeData(string customerProfileID = default(string), long loyaltyProgramID = default(long), string subledgerID = "", string currentTier = default(string), decimal currentPoints = default(decimal), decimal pointsRequiredToRemain = default(decimal), string nextTier = default(string), DateTime tierExpirationDate = default(DateTime))
+        /// <param name="source">The source of the tier change, whether from a points change or boost. (default to SourceEnum.Points).</param>
+        /// <param name="reason">The reason for the tier change..</param>
+        public TierWillDowngradeData(string customerProfileID = default(string), long loyaltyProgramID = default(long), string subledgerID = "", string currentTier = default(string), decimal currentPoints = default(decimal), decimal pointsRequiredToRemain = default(decimal), string nextTier = default(string), DateTime tierExpirationDate = default(DateTime), SourceEnum? source = SourceEnum.Points, string reason = default(string))
         {
             // to ensure "customerProfileID" is required (not null)
             this.CustomerProfileID = customerProfileID ?? throw new ArgumentNullException("customerProfileID is a required property for TierWillDowngradeData and cannot be null");
@@ -60,6 +89,8 @@ namespace TalonOne.Model
             this.PointsRequiredToRemain = pointsRequiredToRemain;
             this.NextTier = nextTier;
             this.TierExpirationDate = tierExpirationDate;
+            this.Source = source;
+            this.Reason = reason;
         }
         
         /// <summary>
@@ -119,6 +150,13 @@ namespace TalonOne.Model
         public DateTime TierExpirationDate { get; set; }
 
         /// <summary>
+        /// The reason for the tier change.
+        /// </summary>
+        /// <value>The reason for the tier change.</value>
+        [DataMember(Name="Reason", EmitDefaultValue=false)]
+        public string Reason { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -134,6 +172,8 @@ namespace TalonOne.Model
             sb.Append("  PointsRequiredToRemain: ").Append(PointsRequiredToRemain).Append("\n");
             sb.Append("  NextTier: ").Append(NextTier).Append("\n");
             sb.Append("  TierExpirationDate: ").Append(TierExpirationDate).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
+            sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -204,6 +244,15 @@ namespace TalonOne.Model
                     this.TierExpirationDate == input.TierExpirationDate ||
                     (this.TierExpirationDate != null &&
                     this.TierExpirationDate.Equals(input.TierExpirationDate))
+                ) && 
+                (
+                    this.Source == input.Source ||
+                    this.Source.Equals(input.Source)
+                ) && 
+                (
+                    this.Reason == input.Reason ||
+                    (this.Reason != null &&
+                    this.Reason.Equals(input.Reason))
                 );
         }
 
@@ -229,6 +278,9 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.NextTier.GetHashCode();
                 if (this.TierExpirationDate != null)
                     hashCode = hashCode * 59 + this.TierExpirationDate.GetHashCode();
+                hashCode = hashCode * 59 + this.Source.GetHashCode();
+                if (this.Reason != null)
+                    hashCode = hashCode * 59 + this.Reason.GetHashCode();
                 return hashCode;
             }
         }

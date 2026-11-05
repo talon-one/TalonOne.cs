@@ -39,10 +39,10 @@ namespace TalonOne.Model
         public enum NotificationTypeEnum
         {
             /// <summary>
-            /// Enum CampaignNotification for value: CampaignNotification
+            /// Enum CampaignEvaluationTreeChanged for value: CampaignEvaluationTreeChanged
             /// </summary>
-            [EnumMember(Value = "CampaignNotification")]
-            CampaignNotification = 1
+            [EnumMember(Value = "CampaignEvaluationTreeChanged")]
+            CampaignEvaluationTreeChanged = 1
 
         }
 
@@ -62,12 +62,13 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="notificationType">The type of the notification (required).</param>
         /// <param name="totalResultSize">The total size of the result set. (required).</param>
-        /// <param name="data">The array of changes..</param>
+        /// <param name="data">The array of changes. (required).</param>
         public CampaignEvaluationTreeChangedMessage(NotificationTypeEnum notificationType = default(NotificationTypeEnum), long totalResultSize = default(long), List<ApplicationNotification> data = default(List<ApplicationNotification>))
         {
             this.NotificationType = notificationType;
             this.TotalResultSize = totalResultSize;
-            this.Data = data;
+            // to ensure "data" is required (not null)
+            this.Data = data ?? throw new ArgumentNullException("data is a required property for CampaignEvaluationTreeChangedMessage and cannot be null");
         }
         
         /// <summary>

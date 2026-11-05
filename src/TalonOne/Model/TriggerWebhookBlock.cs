@@ -43,7 +43,7 @@ namespace TalonOne.Model
         /// <param name="webhook">webhook (required).</param>
         /// <param name="_params">The webhook&#39;s parameters, in configured order. Each property name is the parameter&#39;s title, lowercased with spaces replaced by underscores (for example, &#x60;Order ID&#x60; becomes &#x60;order_id&#x60;); falls back to &#x60;param_0&#x60;, &#x60;param_1&#x60;, and so on if a title is blank or collides with another..</param>
         /// <param name="onError">Named error handlers evaluated when a specific error occurs..</param>
-        public TriggerWebhookBlock(string type = default(string), TriggerWebhookBlockWebhook webhook = default(TriggerWebhookBlockWebhook), Object _params = default(Object), Dictionary<string, List<Object>> onError = default(Dictionary<string, List<Object>>))
+        public TriggerWebhookBlock(string type = default(string), WebhookBlockReference webhook = default(WebhookBlockReference), Object _params = default(Object), Dictionary<string, List<Object>> onError = default(Dictionary<string, List<Object>>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for TriggerWebhookBlock and cannot be null");
@@ -78,7 +78,7 @@ namespace TalonOne.Model
         /// Gets or Sets Webhook
         /// </summary>
         [DataMember(Name="webhook", EmitDefaultValue=false)]
-        public TriggerWebhookBlockWebhook Webhook { get; set; }
+        public WebhookBlockReference Webhook { get; set; }
 
         /// <summary>
         /// The webhook&#39;s parameters, in configured order. Each property name is the parameter&#39;s title, lowercased with spaces replaced by underscores (for example, &#x60;Order ID&#x60; becomes &#x60;order_id&#x60;); falls back to &#x60;param_0&#x60;, &#x60;param_1&#x60;, and so on if a title is blank or collides with another.

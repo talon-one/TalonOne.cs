@@ -102,7 +102,7 @@ namespace TalonOne.Test
             //string couponValue = null;
             //CouponReservations body = null;
             //var response = instance.CreateCouponReservation(couponValue, body);
-            //Assert.IsType<Coupon> (response, "response is Coupon");
+            //Assert.IsType<CouponWithReservations> (response, "response is CouponWithReservations");
         }
         
         /// <summary>
@@ -262,6 +262,22 @@ namespace TalonOne.Test
         }
         
         /// <summary>
+        /// Test GetCustomerRewards
+        /// </summary>
+        [Fact]
+        public void GetCustomerRewardsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string integrationId = null;
+            //List<string> status = null;
+            //long? pageSize = null;
+            //long? skip = null;
+            //bool? withTotalResultSize = null;
+            //var response = instance.GetCustomerRewards(integrationId, status, pageSize, skip, withTotalResultSize);
+            //Assert.IsType<InlineResponse2004> (response, "response is InlineResponse2004");
+        }
+        
+        /// <summary>
         /// Test GetCustomerSession
         /// </summary>
         [Fact]
@@ -334,7 +350,7 @@ namespace TalonOne.Test
             //long? skip = null;
             //string sort = null;
             //var response = instance.GetLoyaltyCardPoints(loyaltyProgramId, loyaltyCardId, status, subledgerId, customerSessionIDs, transactionUUIDs, pageSize, skip, sort);
-            //Assert.IsType<InlineResponse2006> (response, "response is InlineResponse2006");
+            //Assert.IsType<InlineResponse2008> (response, "response is InlineResponse2008");
         }
         
         /// <summary>
@@ -356,7 +372,7 @@ namespace TalonOne.Test
             //long? skip = null;
             //bool? awaitsActivation = null;
             //var response = instance.GetLoyaltyCardTransactions(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, awaitsActivation);
-            //Assert.IsType<InlineResponse2004> (response, "response is InlineResponse2004");
+            //Assert.IsType<InlineResponse2005> (response, "response is InlineResponse2005");
         }
         
         /// <summary>
@@ -376,7 +392,7 @@ namespace TalonOne.Test
             //long? skip = null;
             //string sort = null;
             //var response = instance.GetLoyaltyProgramProfilePoints(loyaltyProgramId, integrationId, status, subledgerId, customerSessionIDs, transactionUUIDs, pageSize, skip, sort);
-            //Assert.IsType<InlineResponse2007> (response, "response is InlineResponse2007");
+            //Assert.IsType<InlineResponse2009> (response, "response is InlineResponse2009");
         }
         
         /// <summary>
@@ -398,7 +414,7 @@ namespace TalonOne.Test
             //long? skip = null;
             //bool? awaitsActivation = null;
             //var response = instance.GetLoyaltyProgramProfileTransactions(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation);
-            //Assert.IsType<InlineResponse2005> (response, "response is InlineResponse2005");
+            //Assert.IsType<InlineResponse2006> (response, "response is InlineResponse2006");
         }
         
         /// <summary>
@@ -450,7 +466,7 @@ namespace TalonOne.Test
             //string profileIntegrationId = null;
             //string loyaltyCardId = null;
             //var response = instance.IntegrationRewardsCatalog(pageSize, skip, pointsFrom, pointsTo, includeFree, loyaltyProgramId, subledgerId, profileIntegrationId, loyaltyCardId);
-            //Assert.IsType<InlineResponse20056> (response, "response is InlineResponse20056");
+            //Assert.IsType<InlineResponse20059> (response, "response is InlineResponse20059");
         }
         
         /// <summary>
@@ -575,7 +591,7 @@ namespace TalonOne.Test
             //IntegrationUnlockRewardRequest body = null;
             //bool? dry = null;
             //var response = instance.UnlockReward(rewardId, body, dry);
-            //Assert.IsType<IntegrationStateV2> (response, "response is IntegrationStateV2");
+            //Assert.IsType<IntegrationUnlockRewardResponse> (response, "response is IntegrationUnlockRewardResponse");
         }
         
         /// <summary>

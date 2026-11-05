@@ -71,9 +71,9 @@ namespace TalonOne.Model
         [DataMember(Name="operator", EmitDefaultValue=false)]
         public OperatorEnum Operator { get; set; }
         /// <summary>
-        /// The customer profile to check against the audience. &#x60;Current&#x60; targets the customer in the current session; &#x60;Advocate&#x60; targets the person who invited their friend via referral program.
+        /// The customer profile to check against the audience. &#x60;Current&#x60; targets the customer in the current session; &#x60;Advocate&#x60; targets the person who invited their friend via referral program. Only applies to the &#x60;member&#x60; and &#x60;not(member)&#x60; operators; ignored for &#x60;justJoined&#x60; and &#x60;justLeft&#x60;.
         /// </summary>
-        /// <value>The customer profile to check against the audience. &#x60;Current&#x60; targets the customer in the current session; &#x60;Advocate&#x60; targets the person who invited their friend via referral program.</value>
+        /// <value>The customer profile to check against the audience. &#x60;Current&#x60; targets the customer in the current session; &#x60;Advocate&#x60; targets the person who invited their friend via referral program. Only applies to the &#x60;member&#x60; and &#x60;not(member)&#x60; operators; ignored for &#x60;justJoined&#x60; and &#x60;justLeft&#x60;.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ProfileEnum
         {
@@ -92,11 +92,11 @@ namespace TalonOne.Model
         }
 
         /// <summary>
-        /// The customer profile to check against the audience. &#x60;Current&#x60; targets the customer in the current session; &#x60;Advocate&#x60; targets the person who invited their friend via referral program.
+        /// The customer profile to check against the audience. &#x60;Current&#x60; targets the customer in the current session; &#x60;Advocate&#x60; targets the person who invited their friend via referral program. Only applies to the &#x60;member&#x60; and &#x60;not(member)&#x60; operators; ignored for &#x60;justJoined&#x60; and &#x60;justLeft&#x60;.
         /// </summary>
-        /// <value>The customer profile to check against the audience. &#x60;Current&#x60; targets the customer in the current session; &#x60;Advocate&#x60; targets the person who invited their friend via referral program.</value>
+        /// <value>The customer profile to check against the audience. &#x60;Current&#x60; targets the customer in the current session; &#x60;Advocate&#x60; targets the person who invited their friend via referral program. Only applies to the &#x60;member&#x60; and &#x60;not(member)&#x60; operators; ignored for &#x60;justJoined&#x60; and &#x60;justLeft&#x60;.</value>
         [DataMember(Name="profile", EmitDefaultValue=false)]
-        public ProfileEnum Profile { get; set; }
+        public ProfileEnum? Profile { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CheckAudienceBlock" /> class.
         /// </summary>
@@ -107,17 +107,17 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="type">Identifies the block variant and determines which additional properties are present in it. (required).</param>
         /// <param name="_operator">An indicator of how the block compares its elements. (required).</param>
-        /// <param name="profile">The customer profile to check against the audience. &#x60;Current&#x60; targets the customer in the current session; &#x60;Advocate&#x60; targets the person who invited their friend via referral program. (required).</param>
+        /// <param name="profile">The customer profile to check against the audience. &#x60;Current&#x60; targets the customer in the current session; &#x60;Advocate&#x60; targets the person who invited their friend via referral program. Only applies to the &#x60;member&#x60; and &#x60;not(member)&#x60; operators; ignored for &#x60;justJoined&#x60; and &#x60;justLeft&#x60;..</param>
         /// <param name="audience">audience (required).</param>
         /// <param name="onFailure">Promotion blocks evaluated when this block fails or returns false..</param>
-        public CheckAudienceBlock(string type = default(string), OperatorEnum _operator = default(OperatorEnum), ProfileEnum profile = default(ProfileEnum), CheckAudienceBlockAudience audience = default(CheckAudienceBlockAudience), List<Object> onFailure = default(List<Object>))
+        public CheckAudienceBlock(string type = default(string), OperatorEnum _operator = default(OperatorEnum), ProfileEnum? profile = default(ProfileEnum?), AudienceBlockReference audience = default(AudienceBlockReference), List<Object> onFailure = default(List<Object>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for CheckAudienceBlock and cannot be null");
             this.Operator = _operator;
-            this.Profile = profile;
             // to ensure "audience" is required (not null)
             this.Audience = audience ?? throw new ArgumentNullException("audience is a required property for CheckAudienceBlock and cannot be null");
+            this.Profile = profile;
             this.OnFailure = onFailure;
         }
         
@@ -146,7 +146,7 @@ namespace TalonOne.Model
         /// Gets or Sets Audience
         /// </summary>
         [DataMember(Name="audience", EmitDefaultValue=false)]
-        public CheckAudienceBlockAudience Audience { get; set; }
+        public AudienceBlockReference Audience { get; set; }
 
         /// <summary>
         /// Promotion blocks evaluated when this block fails or returns false.

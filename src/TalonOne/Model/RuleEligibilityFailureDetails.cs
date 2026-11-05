@@ -73,8 +73,10 @@ namespace TalonOne.Model
         /// <param name="referralValue">The referral code that was being evaluated when the rule failed. .</param>
         /// <param name="conditionIndex">The index of the condition that caused the rule to fail..</param>
         /// <param name="effectIndex">The index of the effect that caused the rule to fail..</param>
+        /// <param name="ruleIndex">The index of the rule that failed within the ruleset..</param>
+        /// <param name="rulesetId">The ID of the ruleset containing the rule that failed..</param>
         /// <param name="details">Additional details about the failure. (required).</param>
-        public RuleEligibilityFailureDetails(FailureCodeEnum failureCode = default(FailureCodeEnum), long couponID = default(long), string couponValue = default(string), long referralID = default(long), string referralValue = default(string), long conditionIndex = default(long), long effectIndex = default(long), string details = default(string))
+        public RuleEligibilityFailureDetails(FailureCodeEnum failureCode = default(FailureCodeEnum), long couponID = default(long), string couponValue = default(string), long referralID = default(long), string referralValue = default(string), long conditionIndex = default(long), long effectIndex = default(long), long ruleIndex = default(long), long rulesetId = default(long), string details = default(string))
         {
             this.FailureCode = failureCode;
             // to ensure "details" is required (not null)
@@ -85,6 +87,8 @@ namespace TalonOne.Model
             this.ReferralValue = referralValue;
             this.ConditionIndex = conditionIndex;
             this.EffectIndex = effectIndex;
+            this.RuleIndex = ruleIndex;
+            this.RulesetId = rulesetId;
         }
         
         /// <summary>
@@ -130,6 +134,20 @@ namespace TalonOne.Model
         public long EffectIndex { get; set; }
 
         /// <summary>
+        /// The index of the rule that failed within the ruleset.
+        /// </summary>
+        /// <value>The index of the rule that failed within the ruleset.</value>
+        [DataMember(Name="ruleIndex", EmitDefaultValue=false)]
+        public long RuleIndex { get; set; }
+
+        /// <summary>
+        /// The ID of the ruleset containing the rule that failed.
+        /// </summary>
+        /// <value>The ID of the ruleset containing the rule that failed.</value>
+        [DataMember(Name="rulesetId", EmitDefaultValue=false)]
+        public long RulesetId { get; set; }
+
+        /// <summary>
         /// Additional details about the failure.
         /// </summary>
         /// <value>Additional details about the failure.</value>
@@ -151,6 +169,8 @@ namespace TalonOne.Model
             sb.Append("  ReferralValue: ").Append(ReferralValue).Append("\n");
             sb.Append("  ConditionIndex: ").Append(ConditionIndex).Append("\n");
             sb.Append("  EffectIndex: ").Append(EffectIndex).Append("\n");
+            sb.Append("  RuleIndex: ").Append(RuleIndex).Append("\n");
+            sb.Append("  RulesetId: ").Append(RulesetId).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -217,6 +237,14 @@ namespace TalonOne.Model
                     this.EffectIndex.Equals(input.EffectIndex)
                 ) && 
                 (
+                    this.RuleIndex == input.RuleIndex ||
+                    this.RuleIndex.Equals(input.RuleIndex)
+                ) && 
+                (
+                    this.RulesetId == input.RulesetId ||
+                    this.RulesetId.Equals(input.RulesetId)
+                ) && 
+                (
                     this.Details == input.Details ||
                     (this.Details != null &&
                     this.Details.Equals(input.Details))
@@ -241,6 +269,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.ReferralValue.GetHashCode();
                 hashCode = hashCode * 59 + this.ConditionIndex.GetHashCode();
                 hashCode = hashCode * 59 + this.EffectIndex.GetHashCode();
+                hashCode = hashCode * 59 + this.RuleIndex.GetHashCode();
+                hashCode = hashCode * 59 + this.RulesetId.GetHashCode();
                 if (this.Details != null)
                     hashCode = hashCode * 59 + this.Details.GetHashCode();
                 return hashCode;

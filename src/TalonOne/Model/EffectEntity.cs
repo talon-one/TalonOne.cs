@@ -44,7 +44,7 @@ namespace TalonOne.Model
         /// <param name="rulesetId">The ID of the ruleset that was active in the campaign when this effect was triggered. (required).</param>
         /// <param name="ruleIndex">The position of the rule that triggered this effect within the ruleset. (required).</param>
         /// <param name="ruleName">The name of the rule that triggered this effect. (required).</param>
-        /// <param name="effectType">The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). (required).</param>
+        /// <param name="effectType">See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). (required).</param>
         /// <param name="triggeredByCoupon">The ID of the coupon that was being evaluated when this effect was triggered..</param>
         /// <param name="triggeredForCatalogItem">The ID of the catalog item that was being evaluated when this effect was triggered..</param>
         /// <param name="conditionIndex">The index of the condition that was triggered..</param>
@@ -56,7 +56,8 @@ namespace TalonOne.Model
         /// <param name="selectedPrice">The value of the selected price type to apply to the SKU targeted by this effect, before any discounts are applied..</param>
         /// <param name="adjustmentReferenceId">The reference identifier of the selected price adjustment for this SKU. This is only returned if the &#x60;selectedPrice&#x60; resulted from a price adjustment..</param>
         /// <param name="rewardId">The ID of the reward that was being evaluated when this effect was triggered..</param>
-        public EffectEntity(long experimentId = default(long), long campaignId = default(long), long rulesetId = default(long), long ruleIndex = default(long), string ruleName = default(string), string effectType = default(string), long triggeredByCoupon = default(long), long triggeredForCatalogItem = default(long), long conditionIndex = default(long), long evaluationGroupID = default(long), string evaluationGroupMode = default(string), long campaignRevisionId = default(long), long campaignRevisionVersionId = default(long), string selectedPriceType = default(string), decimal selectedPrice = default(decimal), Guid adjustmentReferenceId = default(Guid), long rewardId = default(long))
+        /// <param name="rewardIntegrationId">The integration ID of the specific customer reward whose usage produced this effect..</param>
+        public EffectEntity(long experimentId = default(long), long campaignId = default(long), long rulesetId = default(long), long ruleIndex = default(long), string ruleName = default(string), string effectType = default(string), long triggeredByCoupon = default(long), long triggeredForCatalogItem = default(long), long conditionIndex = default(long), long evaluationGroupID = default(long), string evaluationGroupMode = default(string), long campaignRevisionId = default(long), long campaignRevisionVersionId = default(long), string selectedPriceType = default(string), decimal selectedPrice = default(decimal), Guid adjustmentReferenceId = default(Guid), long rewardId = default(long), string rewardIntegrationId = default(string))
         {
             this.CampaignId = campaignId;
             this.RulesetId = rulesetId;
@@ -77,6 +78,7 @@ namespace TalonOne.Model
             this.SelectedPrice = selectedPrice;
             this.AdjustmentReferenceId = adjustmentReferenceId;
             this.RewardId = rewardId;
+            this.RewardIntegrationId = rewardIntegrationId;
         }
         
         /// <summary>
@@ -115,9 +117,9 @@ namespace TalonOne.Model
         public string RuleName { get; set; }
 
         /// <summary>
-        /// The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).
+        /// See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).
         /// </summary>
-        /// <value>The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).</value>
+        /// <value>See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).</value>
         [DataMember(Name="effectType", EmitDefaultValue=false)]
         public string EffectType { get; set; }
 
@@ -199,6 +201,13 @@ namespace TalonOne.Model
         public long RewardId { get; set; }
 
         /// <summary>
+        /// The integration ID of the specific customer reward whose usage produced this effect.
+        /// </summary>
+        /// <value>The integration ID of the specific customer reward whose usage produced this effect.</value>
+        [DataMember(Name="rewardIntegrationId", EmitDefaultValue=false)]
+        public string RewardIntegrationId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -223,6 +232,7 @@ namespace TalonOne.Model
             sb.Append("  SelectedPrice: ").Append(SelectedPrice).Append("\n");
             sb.Append("  AdjustmentReferenceId: ").Append(AdjustmentReferenceId).Append("\n");
             sb.Append("  RewardId: ").Append(RewardId).Append("\n");
+            sb.Append("  RewardIntegrationId: ").Append(RewardIntegrationId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -329,6 +339,11 @@ namespace TalonOne.Model
                 (
                     this.RewardId == input.RewardId ||
                     this.RewardId.Equals(input.RewardId)
+                ) && 
+                (
+                    this.RewardIntegrationId == input.RewardIntegrationId ||
+                    (this.RewardIntegrationId != null &&
+                    this.RewardIntegrationId.Equals(input.RewardIntegrationId))
                 );
         }
 
@@ -363,6 +378,8 @@ namespace TalonOne.Model
                 if (this.AdjustmentReferenceId != null)
                     hashCode = hashCode * 59 + this.AdjustmentReferenceId.GetHashCode();
                 hashCode = hashCode * 59 + this.RewardId.GetHashCode();
+                if (this.RewardIntegrationId != null)
+                    hashCode = hashCode * 59 + this.RewardIntegrationId.GetHashCode();
                 return hashCode;
             }
         }

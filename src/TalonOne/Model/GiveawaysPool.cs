@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// Giveaways pools is an entity for managing multiple similar giveaways.
+    /// A giveaway pool is an entity for managing multiple similar giveaways.
     /// </summary>
     [DataContract]
     public partial class GiveawaysPool :  IEquatable<GiveawaysPool>, IValidatableObject
@@ -42,13 +42,13 @@ namespace TalonOne.Model
         /// <param name="id">The internal ID of this entity. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
-        /// <param name="name">The name of this giveaways pool. (required).</param>
-        /// <param name="description">The description of this giveaways pool..</param>
-        /// <param name="subscribedApplicationsIds">A list of the IDs of the applications that this giveaways pool is enabled for..</param>
+        /// <param name="name">The name of this giveaway pool. (required).</param>
+        /// <param name="description">The description of this giveaway pool..</param>
+        /// <param name="subscribedApplicationsIds">A list of the IDs of the Applications that this giveaway pool is enabled for..</param>
         /// <param name="sandbox">Indicates if this program is a live or sandbox program. Programs of a given type can only be connected to Applications of the same type. (required).</param>
-        /// <param name="modified">Timestamp of the most recent update to the giveaways pool..</param>
-        /// <param name="createdBy">ID of the user who created this giveaways pool. (required).</param>
-        /// <param name="modifiedBy">ID of the user who last updated this giveaways pool if available..</param>
+        /// <param name="modified">Timestamp of the most recent update to the giveaway pool..</param>
+        /// <param name="createdBy">ID of the user who created this giveaway pool. (required).</param>
+        /// <param name="modifiedBy">ID of the user who last updated this giveaway pool if available..</param>
         public GiveawaysPool(long id = default(long), DateTime created = default(DateTime), long accountId = default(long), string name = default(string), string description = default(string), List<long> subscribedApplicationsIds = default(List<long>), bool sandbox = default(bool), DateTime modified = default(DateTime), long createdBy = default(long), long modifiedBy = default(long))
         {
             this.Id = id;
@@ -86,23 +86,23 @@ namespace TalonOne.Model
         public long AccountId { get; set; }
 
         /// <summary>
-        /// The name of this giveaways pool.
+        /// The name of this giveaway pool.
         /// </summary>
-        /// <value>The name of this giveaways pool.</value>
+        /// <value>The name of this giveaway pool.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The description of this giveaways pool.
+        /// The description of this giveaway pool.
         /// </summary>
-        /// <value>The description of this giveaways pool.</value>
+        /// <value>The description of this giveaway pool.</value>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
 
         /// <summary>
-        /// A list of the IDs of the applications that this giveaways pool is enabled for.
+        /// A list of the IDs of the Applications that this giveaway pool is enabled for.
         /// </summary>
-        /// <value>A list of the IDs of the applications that this giveaways pool is enabled for.</value>
+        /// <value>A list of the IDs of the Applications that this giveaway pool is enabled for.</value>
         [DataMember(Name="subscribedApplicationsIds", EmitDefaultValue=false)]
         public List<long> SubscribedApplicationsIds { get; set; }
 
@@ -114,23 +114,23 @@ namespace TalonOne.Model
         public bool Sandbox { get; set; }
 
         /// <summary>
-        /// Timestamp of the most recent update to the giveaways pool.
+        /// Timestamp of the most recent update to the giveaway pool.
         /// </summary>
-        /// <value>Timestamp of the most recent update to the giveaways pool.</value>
+        /// <value>Timestamp of the most recent update to the giveaway pool.</value>
         [DataMember(Name="modified", EmitDefaultValue=false)]
         public DateTime Modified { get; set; }
 
         /// <summary>
-        /// ID of the user who created this giveaways pool.
+        /// ID of the user who created this giveaway pool.
         /// </summary>
-        /// <value>ID of the user who created this giveaways pool.</value>
+        /// <value>ID of the user who created this giveaway pool.</value>
         [DataMember(Name="createdBy", EmitDefaultValue=false)]
         public long CreatedBy { get; set; }
 
         /// <summary>
-        /// ID of the user who last updated this giveaways pool if available.
+        /// ID of the user who last updated this giveaway pool if available.
         /// </summary>
-        /// <value>ID of the user who last updated this giveaways pool if available.</value>
+        /// <value>ID of the user who last updated this giveaway pool if available.</value>
         [DataMember(Name="modifiedBy", EmitDefaultValue=false)]
         public long ModifiedBy { get; set; }
 

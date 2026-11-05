@@ -40,14 +40,14 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="Revision" /> class.
         /// </summary>
         /// <param name="id">Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. (required).</param>
-        /// <param name="activateAt">activateAt.</param>
-        /// <param name="accountId">accountId (required).</param>
-        /// <param name="applicationId">applicationId (required).</param>
-        /// <param name="campaignId">campaignId (required).</param>
-        /// <param name="created">created (required).</param>
-        /// <param name="createdBy">createdBy (required).</param>
-        /// <param name="activatedAt">activatedAt.</param>
-        /// <param name="activatedBy">activatedBy.</param>
+        /// <param name="activateAt">Timestamp when the revision will be activated..</param>
+        /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
+        /// <param name="applicationId">The ID of the Application that owns this entity. (required).</param>
+        /// <param name="campaignId">The ID of the campaign that the revision was created from. (required).</param>
+        /// <param name="created">Timestamp when the revision was created. (required).</param>
+        /// <param name="createdBy">The ID of the user who created this revision. (required).</param>
+        /// <param name="activatedAt">Timestamp when this revision was activated..</param>
+        /// <param name="activatedBy">The ID of the user who activated this revision..</param>
         /// <param name="currentVersion">currentVersion.</param>
         public Revision(long id = default(long), DateTime activateAt = default(DateTime), long accountId = default(long), long applicationId = default(long), long campaignId = default(long), DateTime created = default(DateTime), long createdBy = default(long), DateTime activatedAt = default(DateTime), long activatedBy = default(long), RevisionVersion currentVersion = default(RevisionVersion))
         {
@@ -71,50 +71,58 @@ namespace TalonOne.Model
         public long Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets ActivateAt
+        /// Timestamp when the revision will be activated.
         /// </summary>
+        /// <value>Timestamp when the revision will be activated.</value>
         [DataMember(Name="activateAt", EmitDefaultValue=false)]
         public DateTime ActivateAt { get; set; }
 
         /// <summary>
-        /// Gets or Sets AccountId
+        /// The ID of the account that owns this entity.
         /// </summary>
+        /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
         public long AccountId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ApplicationId
+        /// The ID of the Application that owns this entity.
         /// </summary>
+        /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
         public long ApplicationId { get; set; }
 
         /// <summary>
-        /// Gets or Sets CampaignId
+        /// The ID of the campaign that the revision was created from.
         /// </summary>
+        /// <value>The ID of the campaign that the revision was created from.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
         public long CampaignId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Created
+        /// Timestamp when the revision was created.
         /// </summary>
+        /// <value>Timestamp when the revision was created.</value>
         [DataMember(Name="created", EmitDefaultValue=false)]
         public DateTime Created { get; set; }
 
         /// <summary>
-        /// Gets or Sets CreatedBy
+        /// The ID of the user who created this revision.
         /// </summary>
+        /// <value>The ID of the user who created this revision.</value>
         [DataMember(Name="createdBy", EmitDefaultValue=false)]
         public long CreatedBy { get; set; }
 
         /// <summary>
-        /// Gets or Sets ActivatedAt
+        /// Timestamp when this revision was activated.
         /// </summary>
+        /// <value>Timestamp when this revision was activated.</value>
         [DataMember(Name="activatedAt", EmitDefaultValue=false)]
         public DateTime ActivatedAt { get; set; }
 
         /// <summary>
-        /// Gets or Sets ActivatedBy
+        /// The ID of the user who activated this revision.
         /// </summary>
+        /// <value>The ID of the user who activated this revision.</value>
         [DataMember(Name="activatedBy", EmitDefaultValue=false)]
         public long ActivatedBy { get; set; }
 

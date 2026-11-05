@@ -36,7 +36,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="customerSession">customerSession.</param>
         /// <param name="effects">The returned effects.  **Note:** This endpoint returns only the effects that are valid after any rollback effects and their corresponding non-rollback effects are removed. .</param>
-        public IntegrationCustomerSessionResponse(CustomerSessionV2 customerSession = default(CustomerSessionV2), List<Effect> effects = default(List<Effect>))
+        public IntegrationCustomerSessionResponse(CustomerSessionV2 customerSession = default(CustomerSessionV2), List<Object> effects = default(List<Object>))
         {
             this.CustomerSession = customerSession;
             this.Effects = effects;
@@ -53,7 +53,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The returned effects.  **Note:** This endpoint returns only the effects that are valid after any rollback effects and their corresponding non-rollback effects are removed. </value>
         [DataMember(Name="effects", EmitDefaultValue=false)]
-        public List<Effect> Effects { get; set; }
+        public List<Object> Effects { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

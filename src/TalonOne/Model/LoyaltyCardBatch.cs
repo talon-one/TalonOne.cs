@@ -190,6 +190,18 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // NumberOfCards (long) maximum
+            if(this.NumberOfCards > (long)20000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfCards, must be a value less than or equal to 20000.", new [] { "NumberOfCards" });
+            }
+
+            // NumberOfCards (long) minimum
+            if(this.NumberOfCards < (long)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfCards, must be a value greater than or equal to 1.", new [] { "NumberOfCards" });
+            }
+
             // BatchId (string) maxLength
             if(this.BatchId != null && this.BatchId.Length > 20)
             {

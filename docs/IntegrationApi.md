@@ -19,6 +19,7 @@ Method | HTTP request | Description
 [**GetCustomerAchievementHistory**](IntegrationApi.md#getcustomerachievementhistory) | **GET** /v1/customer_profiles/{integrationId}/achievements/{achievementId} | List customer&#39;s achievement history
 [**GetCustomerAchievements**](IntegrationApi.md#getcustomerachievements) | **GET** /v1/customer_profiles/{integrationId}/achievements | List customer&#39;s available achievements
 [**GetCustomerInventory**](IntegrationApi.md#getcustomerinventory) | **GET** /v1/customer_profiles/{integrationId}/inventory | List customer data
+[**GetCustomerRewards**](IntegrationApi.md#getcustomerrewards) | **GET** /v1/customer_profiles/{integrationId}/rewards | List customer&#39;s rewards
 [**GetCustomerSession**](IntegrationApi.md#getcustomersession) | **GET** /v2/customer_sessions/{customerSessionId} | Get customer session
 [**GetEventV3**](IntegrationApi.md#geteventv3) | **GET** /v3/events/{integrationId} | Get advanced event
 [**GetLoyaltyBalances**](IntegrationApi.md#getloyaltybalances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/balances | Get customer&#39;s loyalty balances
@@ -290,7 +291,7 @@ Name | Type | Description  | Notes
 
 <a name="createcouponreservation"></a>
 # **CreateCouponReservation**
-> Coupon CreateCouponReservation (string couponValue, CouponReservations body)
+> CouponWithReservations CreateCouponReservation (string couponValue, CouponReservations body)
 
 Create coupon reservation
 
@@ -324,7 +325,7 @@ namespace Example
             try
             {
                 // Create coupon reservation
-                Coupon result = apiInstance.CreateCouponReservation(couponValue, body);
+                CouponWithReservations result = apiInstance.CreateCouponReservation(couponValue, body);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -347,7 +348,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Coupon**](Coupon.md)
+[**CouponWithReservations**](CouponWithReservations.md)
 
 ### Authorization
 
@@ -1265,6 +1266,92 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getcustomerrewards"></a>
+# **GetCustomerRewards**
+> InlineResponse2004 GetCustomerRewards (string integrationId, List<string> status = null, long? pageSize = null, long? skip = null, bool? withTotalResultSize = null)
+
+List customer's rewards
+
+List the rewards held by a given customer profile. This includes shared rewards unlocked with a loyalty card linked to the customer. 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class GetCustomerRewardsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://yourbaseurl.talon.one";
+            // Configure API key authorization: api_key_v1
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new IntegrationApi(config);
+            var integrationId = integrationId_example;  // string | The integration identifier for this customer profile. Must be:  - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID. 
+            var status = status_example;  // List<string> | Filter results by one or more customer reward statuses.  **Note:** If no status is specified, rewards of all statuses are returned.  (optional) 
+            var pageSize = 789;  // long? | The number of items in the response. (optional)  (default to 1000)
+            var skip = 789;  // long? | The number of items to skip when paging through large result sets. (optional) 
+            var withTotalResultSize = true;  // bool? | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.   - When `true`: `totalResultSize` contains the total number of results for this query.  - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page.  (optional) 
+
+            try
+            {
+                // List customer's rewards
+                InlineResponse2004 result = apiInstance.GetCustomerRewards(integrationId, status, pageSize, skip, withTotalResultSize);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling IntegrationApi.GetCustomerRewards: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **integrationId** | **string**| The integration identifier for this customer profile. Must be:  - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  | 
+ **status** | **List&lt;string&gt;**| Filter results by one or more customer reward statuses.  **Note:** If no status is specified, rewards of all statuses are returned.  | [optional] 
+ **pageSize** | **long?**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **long?**| The number of items to skip when paging through large result sets. | [optional] 
+ **withTotalResultSize** | **bool?**| When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.   - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query.  - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page.  | [optional] 
+
+### Return type
+
+[**InlineResponse2004**](InlineResponse2004.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad request |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getcustomersession"></a>
 # **GetCustomerSession**
 > IntegrationCustomerSessionResponse GetCustomerSession (string customerSessionId)
@@ -1592,7 +1679,7 @@ Name | Type | Description  | Notes
 
 <a name="getloyaltycardpoints"></a>
 # **GetLoyaltyCardPoints**
-> InlineResponse2006 GetLoyaltyCardPoints (long loyaltyProgramId, string loyaltyCardId, string status = null, List<string> subledgerId = null, List<string> customerSessionIDs = null, List<string> transactionUUIDs = null, long? pageSize = null, long? skip = null, string sort = null)
+> InlineResponse2008 GetLoyaltyCardPoints (long loyaltyProgramId, string loyaltyCardId, string status = null, List<string> subledgerId = null, List<string> customerSessionIDs = null, List<string> transactionUUIDs = null, long? pageSize = null, long? skip = null, string sort = null)
 
 List card's unused loyalty points
 
@@ -1633,7 +1720,7 @@ namespace Example
             try
             {
                 // List card's unused loyalty points
-                InlineResponse2006 result = apiInstance.GetLoyaltyCardPoints(loyaltyProgramId, loyaltyCardId, status, subledgerId, customerSessionIDs, transactionUUIDs, pageSize, skip, sort);
+                InlineResponse2008 result = apiInstance.GetLoyaltyCardPoints(loyaltyProgramId, loyaltyCardId, status, subledgerId, customerSessionIDs, transactionUUIDs, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1663,7 +1750,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -1686,7 +1773,7 @@ Name | Type | Description  | Notes
 
 <a name="getloyaltycardtransactions"></a>
 # **GetLoyaltyCardTransactions**
-> InlineResponse2004 GetLoyaltyCardTransactions (long loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = null, string loyaltyTransactionType = null, DateTime? startDate = null, DateTime? endDate = null, List<string> customerSessionIDs = null, List<string> transactionUUIDs = null, long? pageSize = null, long? skip = null, bool? awaitsActivation = null)
+> InlineResponse2005 GetLoyaltyCardTransactions (long loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = null, string loyaltyTransactionType = null, DateTime? startDate = null, DateTime? endDate = null, List<string> customerSessionIDs = null, List<string> transactionUUIDs = null, long? pageSize = null, long? skip = null, bool? awaitsActivation = null)
 
 List card's transactions
 
@@ -1729,7 +1816,7 @@ namespace Example
             try
             {
                 // List card's transactions
-                InlineResponse2004 result = apiInstance.GetLoyaltyCardTransactions(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, awaitsActivation);
+                InlineResponse2005 result = apiInstance.GetLoyaltyCardTransactions(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip, awaitsActivation);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1761,7 +1848,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -1784,7 +1871,7 @@ Name | Type | Description  | Notes
 
 <a name="getloyaltyprogramprofilepoints"></a>
 # **GetLoyaltyProgramProfilePoints**
-> InlineResponse2007 GetLoyaltyProgramProfilePoints (long loyaltyProgramId, string integrationId, string status = null, List<string> subledgerId = null, List<string> customerSessionIDs = null, List<string> transactionUUIDs = null, long? pageSize = null, long? skip = null, string sort = null)
+> InlineResponse2009 GetLoyaltyProgramProfilePoints (long loyaltyProgramId, string integrationId, string status = null, List<string> subledgerId = null, List<string> customerSessionIDs = null, List<string> transactionUUIDs = null, long? pageSize = null, long? skip = null, string sort = null)
 
 List customer's unused loyalty points
 
@@ -1825,7 +1912,7 @@ namespace Example
             try
             {
                 // List customer's unused loyalty points
-                InlineResponse2007 result = apiInstance.GetLoyaltyProgramProfilePoints(loyaltyProgramId, integrationId, status, subledgerId, customerSessionIDs, transactionUUIDs, pageSize, skip, sort);
+                InlineResponse2009 result = apiInstance.GetLoyaltyProgramProfilePoints(loyaltyProgramId, integrationId, status, subledgerId, customerSessionIDs, transactionUUIDs, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1855,7 +1942,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -1878,7 +1965,7 @@ Name | Type | Description  | Notes
 
 <a name="getloyaltyprogramprofiletransactions"></a>
 # **GetLoyaltyProgramProfileTransactions**
-> InlineResponse2005 GetLoyaltyProgramProfileTransactions (long loyaltyProgramId, string integrationId, List<string> customerSessionIDs = null, List<string> transactionUUIDs = null, List<string> subledgerId = null, string loyaltyTransactionType = null, DateTime? startDate = null, DateTime? endDate = null, long? pageSize = null, long? skip = null, bool? awaitsActivation = null)
+> InlineResponse2006 GetLoyaltyProgramProfileTransactions (long loyaltyProgramId, string integrationId, List<string> customerSessionIDs = null, List<string> transactionUUIDs = null, List<string> subledgerId = null, string loyaltyTransactionType = null, DateTime? startDate = null, DateTime? endDate = null, long? pageSize = null, long? skip = null, bool? awaitsActivation = null)
 
 List customer's loyalty transactions
 
@@ -1921,7 +2008,7 @@ namespace Example
             try
             {
                 // List customer's loyalty transactions
-                InlineResponse2005 result = apiInstance.GetLoyaltyProgramProfileTransactions(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation);
+                InlineResponse2006 result = apiInstance.GetLoyaltyProgramProfileTransactions(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1953,7 +2040,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -2148,7 +2235,7 @@ Name | Type | Description  | Notes
 
 <a name="integrationrewardscatalog"></a>
 # **IntegrationRewardsCatalog**
-> InlineResponse20056 IntegrationRewardsCatalog (long? pageSize = null, long? skip = null, decimal? pointsFrom = null, decimal? pointsTo = null, bool? includeFree = null, long? loyaltyProgramId = null, string subledgerId = null, string profileIntegrationId = null, string loyaltyCardId = null)
+> InlineResponse20059 IntegrationRewardsCatalog (long? pageSize = null, long? skip = null, decimal? pointsFrom = null, decimal? pointsTo = null, bool? includeFree = null, long? loyaltyProgramId = null, string subledgerId = null, string profileIntegrationId = null, string loyaltyCardId = null)
 
 List rewards in the catalog
 
@@ -2183,13 +2270,13 @@ namespace Example
             var includeFree = true;  // bool? | Whether to include rewards that have no `pointsRequired`. These rewards are treated as free and available to all customers.  (optional)  (default to true)
             var loyaltyProgramId = 789;  // long? | Return only rewards available in this loyalty program.  (optional) 
             var subledgerId = subledgerId_example;  // string | Return only rewards available in this subledger. Must be combined with `loyaltyProgramId`. To specify the main ledger, provide an empty string (\"\").  (optional) 
-            var profileIntegrationId = profileIntegrationId_example;  // string | The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when `loyaltyProgramId` is also provided.  **Note:** `profileIntegrationId` and `loyaltyCardId` are mutually exclusive. Do not send both in the same request.  (optional) 
-            var loyaltyCardId = loyaltyCardId_example;  // string | The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when `loyaltyProgramId` is also provided.  **Note:** `profileIntegrationId` and `loyaltyCardId` are mutually exclusive. Do not send both in the same request.  (optional) 
+            var profileIntegrationId = profileIntegrationId_example;  // string | The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when `loyaltyProgramId` is also provided.  For a reward with `pointsRequired` configured for a card-based loyalty program, eligibility can be evaluated based on both `profileIntegrationId` and `loyaltyCardId`, if both are provided. The required points are then checked against the card's balance.  (optional) 
+            var loyaltyCardId = loyaltyCardId_example;  // string | The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when `loyaltyProgramId` is also provided.  For a reward with `pointsRequired` configured for a card-based loyalty program, eligibility can be evaluated based on both `profileIntegrationId` and `loyaltyCardId`, if both are provided. The card must also be linked to that customer profile. - If `loyaltyCardId` is not provided, the reward returns the `CARD_REQUIRED` failure code, because there is no card balance to compare `pointsRequired` against. - If `profileIntegrationId` is not provided, the reward returns the `PROFILE_REQUIRED` failure code, because its eligibility cannot be evaluated without a customer profile.  (optional) 
 
             try
             {
                 // List rewards in the catalog
-                InlineResponse20056 result = apiInstance.IntegrationRewardsCatalog(pageSize, skip, pointsFrom, pointsTo, includeFree, loyaltyProgramId, subledgerId, profileIntegrationId, loyaltyCardId);
+                InlineResponse20059 result = apiInstance.IntegrationRewardsCatalog(pageSize, skip, pointsFrom, pointsTo, includeFree, loyaltyProgramId, subledgerId, profileIntegrationId, loyaltyCardId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2214,12 +2301,12 @@ Name | Type | Description  | Notes
  **includeFree** | **bool?**| Whether to include rewards that have no &#x60;pointsRequired&#x60;. These rewards are treated as free and available to all customers.  | [optional] [default to true]
  **loyaltyProgramId** | **long?**| Return only rewards available in this loyalty program.  | [optional] 
  **subledgerId** | **string**| Return only rewards available in this subledger. Must be combined with &#x60;loyaltyProgramId&#x60;. To specify the main ledger, provide an empty string (\&quot;\&quot;).  | [optional] 
- **profileIntegrationId** | **string**| The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request.  | [optional] 
- **loyaltyCardId** | **string**| The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request.  | [optional] 
+ **profileIntegrationId** | **string**| The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  For a reward with &#x60;pointsRequired&#x60; configured for a card-based loyalty program, eligibility can be evaluated based on both &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60;, if both are provided. The required points are then checked against the card&#39;s balance.  | [optional] 
+ **loyaltyCardId** | **string**| The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  For a reward with &#x60;pointsRequired&#x60; configured for a card-based loyalty program, eligibility can be evaluated based on both &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60;, if both are provided. The card must also be linked to that customer profile. - If &#x60;loyaltyCardId&#x60; is not provided, the reward returns the &#x60;CARD_REQUIRED&#x60; failure code, because there is no card balance to compare &#x60;pointsRequired&#x60; against. - If &#x60;profileIntegrationId&#x60; is not provided, the reward returns the &#x60;PROFILE_REQUIRED&#x60; failure code, because its eligibility cannot be evaluated without a customer profile.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20056**](InlineResponse20056.md)
+[**InlineResponse20059**](InlineResponse20059.md)
 
 ### Authorization
 
@@ -2894,11 +2981,11 @@ Name | Type | Description  | Notes
 
 <a name="unlockreward"></a>
 # **UnlockReward**
-> IntegrationStateV2 UnlockReward (long rewardId, IntegrationUnlockRewardRequest body, bool? dry = null)
+> IntegrationUnlockRewardResponse UnlockReward (long rewardId, IntegrationUnlockRewardRequest body, bool? dry = null)
 
 Unlock a reward
 
-Unlock a reward for a customer. If the reward has `pointsRequired` configured, the corresponding loyalty points are deducted from the customer's balance.  To unlock a reward with the points of a loyalty card, provide the card in `cardIdentifier`. The points are then deducted from the card, and the unlocked reward belongs to the card, which makes it available to all customer profiles linked to that card. 
+Unlock a reward for a customer. If the reward has `pointsRequired` configured, the corresponding loyalty points are deducted from the customer's balance.  To unlock a reward with the points of a loyalty card, provide the card in `loyaltyCardId`. The points are then deducted from the card, and the unlocked reward belongs to the card, which makes it available to all customer profiles linked to that card. 
 
 ### Example
 ```csharp
@@ -2929,7 +3016,7 @@ namespace Example
             try
             {
                 // Unlock a reward
-                IntegrationStateV2 result = apiInstance.UnlockReward(rewardId, body, dry);
+                IntegrationUnlockRewardResponse result = apiInstance.UnlockReward(rewardId, body, dry);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2953,7 +3040,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**IntegrationStateV2**](IntegrationStateV2.md)
+[**IntegrationUnlockRewardResponse**](IntegrationUnlockRewardResponse.md)
 
 ### Authorization
 

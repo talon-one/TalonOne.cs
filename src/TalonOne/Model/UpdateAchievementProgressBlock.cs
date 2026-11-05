@@ -60,9 +60,9 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="type">Identifies the block variant and determines which additional properties are present in it. (required).</param>
         /// <param name="_operator">_operator (required).</param>
-        /// <param name="value">The value to update the progress by. Supports template placeholders (e.g. \&quot;{{$Session.Total / 2}}\&quot;) for dynamic quantities. (required).</param>
+        /// <param name="value">The value to update the progress by. Either a numeric scalar or a &#x60;{{expression}}&#x60; string that resolves to a number at evaluation time. (required).</param>
         /// <param name="achievement">achievement (required).</param>
-        public UpdateAchievementProgressBlock(string type = default(string), OperatorEnum _operator = default(OperatorEnum), string value = default(string), UpdateAchievementProgressBlockAchievement achievement = default(UpdateAchievementProgressBlockAchievement))
+        public UpdateAchievementProgressBlock(string type = default(string), OperatorEnum _operator = default(OperatorEnum), Object value = default(Object), AchievementBlockReference achievement = default(AchievementBlockReference))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for UpdateAchievementProgressBlock and cannot be null");
@@ -95,17 +95,17 @@ namespace TalonOne.Model
         public List<string> Tags { get; private set; }
 
         /// <summary>
-        /// The value to update the progress by. Supports template placeholders (e.g. \&quot;{{$Session.Total / 2}}\&quot;) for dynamic quantities.
+        /// The value to update the progress by. Either a numeric scalar or a &#x60;{{expression}}&#x60; string that resolves to a number at evaluation time.
         /// </summary>
-        /// <value>The value to update the progress by. Supports template placeholders (e.g. \&quot;{{$Session.Total / 2}}\&quot;) for dynamic quantities.</value>
+        /// <value>The value to update the progress by. Either a numeric scalar or a &#x60;{{expression}}&#x60; string that resolves to a number at evaluation time.</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
-        public string Value { get; set; }
+        public Object Value { get; set; }
 
         /// <summary>
         /// Gets or Sets Achievement
         /// </summary>
         [DataMember(Name="achievement", EmitDefaultValue=false)]
-        public UpdateAchievementProgressBlockAchievement Achievement { get; set; }
+        public AchievementBlockReference Achievement { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

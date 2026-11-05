@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **ReferralValue** | **string** | The referral code that was being evaluated when the rule failed.  | [optional] 
 **ConditionIndex** | **long** | The index of the condition that caused the rule to fail. | [optional] 
 **EffectIndex** | **long** | The index of the effect that caused the rule to fail. | [optional] 
+**RuleIndex** | **long** | The index of the rule that failed within the ruleset. | [optional] 
+**RulesetId** | **long** | The ID of the ruleset containing the rule that failed. | [optional] 
 **Details** | **string** | Additional details about the failure. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

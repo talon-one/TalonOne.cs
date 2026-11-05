@@ -60,16 +60,13 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Bundle" /> class.
         /// </summary>
-        /// <param name="id">An identifier derived from the bundle content. (required).</param>
         /// <param name="name">The name of the bundle. (required).</param>
         /// <param name="type">A binding of type &#x60;bundle&#x60;. (required).</param>
         /// <param name="sources">The selector sources of bundle items. Each source is expressed as a &#x60;{{$selectorName}}&#x60; reference. (required).</param>
         /// <param name="counts">The number of items to retrieve from each corresponding source in &#x60;sources&#x60;. (required).</param>
         /// <param name="matchers">Attribute names that the bundled items must share..</param>
-        public Bundle(string id = default(string), string name = default(string), TypeEnum type = default(TypeEnum), List<string> sources = default(List<string>), List<long> counts = default(List<long>), List<string> matchers = default(List<string>))
+        public Bundle(string name = default(string), TypeEnum type = default(TypeEnum), List<string> sources = default(List<string>), List<long> counts = default(List<long>), List<string> matchers = default(List<string>))
         {
-            // to ensure "id" is required (not null)
-            this.Id = id ?? throw new ArgumentNullException("id is a required property for Bundle and cannot be null");
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for Bundle and cannot be null");
             this.Type = type;
@@ -85,7 +82,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>An identifier derived from the bundle content.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public string Id { get; set; }
+        public string Id { get; private set; }
 
         /// <summary>
         /// The name of the bundle.

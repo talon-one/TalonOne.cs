@@ -32,6 +32,39 @@ namespace TalonOne.Model
     public partial class ExperimentCopyExperiment :  IEquatable<ExperimentCopyExperiment>, IValidatableObject
     {
         /// <summary>
+        /// Controls how customers are assigned to experiment variants in the copied experiment. - &#x60;random&#x60;: Talon.One assigns customers randomly based on variant weights. - &#x60;external&#x60;: The variant assignment is handled externally. - &#x60;audience&#x60;: Each variant targets a specific audience; customers are assigned based on audience membership. This is the source of truth. When omitted, it is derived from the deprecated &#x60;isVariantAssignmentExternal&#x60; flag (&#x60;true&#x60; maps to &#x60;external&#x60;, otherwise &#x60;random&#x60;). 
+        /// </summary>
+        /// <value>Controls how customers are assigned to experiment variants in the copied experiment. - &#x60;random&#x60;: Talon.One assigns customers randomly based on variant weights. - &#x60;external&#x60;: The variant assignment is handled externally. - &#x60;audience&#x60;: Each variant targets a specific audience; customers are assigned based on audience membership. This is the source of truth. When omitted, it is derived from the deprecated &#x60;isVariantAssignmentExternal&#x60; flag (&#x60;true&#x60; maps to &#x60;external&#x60;, otherwise &#x60;random&#x60;). </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum AssignmentTypeEnum
+        {
+            /// <summary>
+            /// Enum Random for value: random
+            /// </summary>
+            [EnumMember(Value = "random")]
+            Random = 1,
+
+            /// <summary>
+            /// Enum External for value: external
+            /// </summary>
+            [EnumMember(Value = "external")]
+            External = 2,
+
+            /// <summary>
+            /// Enum Audience for value: audience
+            /// </summary>
+            [EnumMember(Value = "audience")]
+            Audience = 3
+
+        }
+
+        /// <summary>
+        /// Controls how customers are assigned to experiment variants in the copied experiment. - &#x60;random&#x60;: Talon.One assigns customers randomly based on variant weights. - &#x60;external&#x60;: The variant assignment is handled externally. - &#x60;audience&#x60;: Each variant targets a specific audience; customers are assigned based on audience membership. This is the source of truth. When omitted, it is derived from the deprecated &#x60;isVariantAssignmentExternal&#x60; flag (&#x60;true&#x60; maps to &#x60;external&#x60;, otherwise &#x60;random&#x60;). 
+        /// </summary>
+        /// <value>Controls how customers are assigned to experiment variants in the copied experiment. - &#x60;random&#x60;: Talon.One assigns customers randomly based on variant weights. - &#x60;external&#x60;: The variant assignment is handled externally. - &#x60;audience&#x60;: Each variant targets a specific audience; customers are assigned based on audience membership. This is the source of truth. When omitted, it is derived from the deprecated &#x60;isVariantAssignmentExternal&#x60; flag (&#x60;true&#x60; maps to &#x60;external&#x60;, otherwise &#x60;random&#x60;). </value>
+        [DataMember(Name="assignmentType", EmitDefaultValue=false)]
+        public AssignmentTypeEnum? AssignmentType { get; set; }
+        /// <summary>
         /// The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used. If omitted, the value from the source experiment is used. 
         /// </summary>
         /// <value>The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used. If omitted, the value from the source experiment is used. </value>
@@ -78,23 +111,25 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExperimentCopyExperiment" /> class.
         /// </summary>
-        /// <param name="isVariantAssignmentExternal">The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally.  (required).</param>
+        /// <param name="assignmentType">Controls how customers are assigned to experiment variants in the copied experiment. - &#x60;random&#x60;: Talon.One assigns customers randomly based on variant weights. - &#x60;external&#x60;: The variant assignment is handled externally. - &#x60;audience&#x60;: Each variant targets a specific audience; customers are assigned based on audience membership. This is the source of truth. When omitted, it is derived from the deprecated &#x60;isVariantAssignmentExternal&#x60; flag (&#x60;true&#x60; maps to &#x60;external&#x60;, otherwise &#x60;random&#x60;). .</param>
+        /// <param name="isVariantAssignmentExternal">The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally. Deprecated: use &#x60;assignmentType&#x60; instead. Kept for backwards compatibility with older clients; when set and &#x60;assignmentType&#x60; is omitted, &#x60;true&#x60; maps to &#x60;external&#x60;. .</param>
         /// <param name="campaign">campaign (required).</param>
         /// <param name="goalType">The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used. If omitted, the value from the source experiment is used. .</param>
         /// <param name="goalDescription">A description of the experiment goal. Provides context for the AI summary and helps it interpret the outcome of the experiment against the stated goal. If omitted, the value from the source experiment is used. .</param>
-        public ExperimentCopyExperiment(bool isVariantAssignmentExternal = default(bool), ExperimentCampaignCopy campaign = default(ExperimentCampaignCopy), GoalTypeEnum? goalType = default(GoalTypeEnum?), string goalDescription = default(string))
+        public ExperimentCopyExperiment(AssignmentTypeEnum? assignmentType = default(AssignmentTypeEnum?), bool isVariantAssignmentExternal = default(bool), ExperimentCampaignCopy campaign = default(ExperimentCampaignCopy), GoalTypeEnum? goalType = default(GoalTypeEnum?), string goalDescription = default(string))
         {
-            this.IsVariantAssignmentExternal = isVariantAssignmentExternal;
             // to ensure "campaign" is required (not null)
             this.Campaign = campaign ?? throw new ArgumentNullException("campaign is a required property for ExperimentCopyExperiment and cannot be null");
+            this.AssignmentType = assignmentType;
+            this.IsVariantAssignmentExternal = isVariantAssignmentExternal;
             this.GoalType = goalType;
             this.GoalDescription = goalDescription;
         }
         
         /// <summary>
-        /// The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally. 
+        /// The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally. Deprecated: use &#x60;assignmentType&#x60; instead. Kept for backwards compatibility with older clients; when set and &#x60;assignmentType&#x60; is omitted, &#x60;true&#x60; maps to &#x60;external&#x60;. 
         /// </summary>
-        /// <value>The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally. </value>
+        /// <value>The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally. Deprecated: use &#x60;assignmentType&#x60; instead. Kept for backwards compatibility with older clients; when set and &#x60;assignmentType&#x60; is omitted, &#x60;true&#x60; maps to &#x60;external&#x60;. </value>
         [DataMember(Name="isVariantAssignmentExternal", EmitDefaultValue=false)]
         public bool IsVariantAssignmentExternal { get; set; }
 
@@ -119,6 +154,7 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ExperimentCopyExperiment {\n");
+            sb.Append("  AssignmentType: ").Append(AssignmentType).Append("\n");
             sb.Append("  IsVariantAssignmentExternal: ").Append(IsVariantAssignmentExternal).Append("\n");
             sb.Append("  Campaign: ").Append(Campaign).Append("\n");
             sb.Append("  GoalType: ").Append(GoalType).Append("\n");
@@ -158,6 +194,10 @@ namespace TalonOne.Model
 
             return 
                 (
+                    this.AssignmentType == input.AssignmentType ||
+                    this.AssignmentType.Equals(input.AssignmentType)
+                ) && 
+                (
                     this.IsVariantAssignmentExternal == input.IsVariantAssignmentExternal ||
                     this.IsVariantAssignmentExternal.Equals(input.IsVariantAssignmentExternal)
                 ) && 
@@ -186,6 +226,7 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = hashCode * 59 + this.AssignmentType.GetHashCode();
                 hashCode = hashCode * 59 + this.IsVariantAssignmentExternal.GetHashCode();
                 if (this.Campaign != null)
                     hashCode = hashCode * 59 + this.Campaign.GetHashCode();

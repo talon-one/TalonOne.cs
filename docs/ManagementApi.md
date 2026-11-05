@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**CreateAdditionalCost**](ManagementApi.md#createadditionalcost) | **POST** /v1/additional_costs | Create additional cost
 [**CreateAttribute**](ManagementApi.md#createattribute) | **POST** /v1/attributes | Create custom attribute
 [**CreateBatchLoyaltyCards**](ManagementApi.md#createbatchloyaltycards) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/cards/batch | Create loyalty cards
+[**CreateCampaign**](ManagementApi.md#createcampaign) | **POST** /v1/applications/{applicationId}/campaigns | Create campaign
 [**CreateCampaignFromTemplate**](ManagementApi.md#createcampaignfromtemplate) | **POST** /v1/applications/{applicationId}/create_campaign_from_template | Create campaign from campaign template
 [**CreateCampaignStoreBudget**](ManagementApi.md#createcampaignstorebudget) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets | Create campaign store budget
 [**CreateCollection**](ManagementApi.md#createcollection) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/collections | Create campaign-level collection
@@ -105,6 +106,7 @@ Method | HTTP request | Description
 [**GetCollection**](ManagementApi.md#getcollection) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Get campaign-level collection
 [**GetCollectionItems**](ManagementApi.md#getcollectionitems) | **GET** /v1/collections/{collectionId}/items | Get collection items
 [**GetCouponsWithoutTotalCount**](ManagementApi.md#getcouponswithouttotalcount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/no_total | List coupons
+[**GetCurrentRevision**](ManagementApi.md#getcurrentrevision) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/revisions/current | Get current revision version
 [**GetCustomerActivityReport**](ManagementApi.md#getcustomeractivityreport) | **GET** /v1/applications/{applicationId}/customer_activity_reports/{customerId} | Get customer&#39;s activity report
 [**GetCustomerActivityReportsWithoutTotalCount**](ManagementApi.md#getcustomeractivityreportswithouttotalcount) | **GET** /v1/applications/{applicationId}/customer_activity_reports/no_total | Get Activity Reports for Application Customers
 [**GetCustomerAnalytics**](ManagementApi.md#getcustomeranalytics) | **GET** /v1/applications/{applicationId}/customers/{customerId}/analytics | Get customer&#39;s analytics report
@@ -116,6 +118,7 @@ Method | HTTP request | Description
 [**GetEventTypes**](ManagementApi.md#geteventtypes) | **GET** /v1/event_types | List event types
 [**GetExperiment**](ManagementApi.md#getexperiment) | **GET** /v1/applications/{applicationId}/experiments/{experimentId} | Get experiment in Application
 [**GetExports**](ManagementApi.md#getexports) | **GET** /v1/exports | Get exports
+[**GetGiveawaysPool**](ManagementApi.md#getgiveawayspool) | **GET** /v1/giveaways/pools/{poolId} | Get giveaway pool
 [**GetLoyaltyCard**](ManagementApi.md#getloyaltycard) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId} | Get loyalty card
 [**GetLoyaltyCardTransactionLogs**](ManagementApi.md#getloyaltycardtransactionlogs) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/logs | List card&#39;s transactions (Management API)
 [**GetLoyaltyCards**](ManagementApi.md#getloyaltycards) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards | List loyalty cards
@@ -161,6 +164,7 @@ Method | HTTP request | Description
 [**ListCollections**](ManagementApi.md#listcollections) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/collections | List collections in campaign
 [**ListCollectionsInApplication**](ManagementApi.md#listcollectionsinapplication) | **GET** /v1/applications/{applicationId}/collections | List collections in Application
 [**ListExperiments**](ManagementApi.md#listexperiments) | **GET** /v1/applications/{applicationId}/experiments | List experiments
+[**ListGiveawaysPool**](ManagementApi.md#listgiveawayspool) | **GET** /v1/giveaways/pools | List giveaway pools
 [**ListStores**](ManagementApi.md#liststores) | **GET** /v1/applications/{applicationId}/stores | List stores
 [**OktaEventHandlerChallenge**](ManagementApi.md#oktaeventhandlerchallenge) | **GET** /v1/provisioning/okta | Validate Okta API ownership
 [**PriceHistory**](ManagementApi.md#pricehistory) | **POST** /v1/applications/{applicationId}/price_history | Get summary of price history
@@ -463,7 +467,7 @@ void (empty response body)
 
 <a name="copycampaigntoapplications"></a>
 # **CopyCampaignToApplications**
-> InlineResponse2009 CopyCampaignToApplications (long applicationId, long campaignId, CampaignCopy body)
+> InlineResponse20011 CopyCampaignToApplications (long applicationId, long campaignId, CampaignCopy body)
 
 Copy the campaign into the specified Application
 
@@ -506,7 +510,7 @@ namespace Example
             try
             {
                 // Copy the campaign into the specified Application
-                InlineResponse2009 result = apiInstance.CopyCampaignToApplications(applicationId, campaignId, body);
+                InlineResponse20011 result = apiInstance.CopyCampaignToApplications(applicationId, campaignId, body);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -530,7 +534,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -720,7 +724,6 @@ Name | Type | Description  | Notes
 | **201** | Created |  -  |
 | **400** | Bad request |  -  |
 | **401** | Unauthorized |  -  |
-| **409** | Conflict. An achievement with this name or title already exists. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -806,7 +809,6 @@ Name | Type | Description  | Notes
 | **201** | Created |  -  |
 | **400** | Bad request |  -  |
 | **401** | Unauthorized |  -  |
-| **409** | Conflict. An achievement with this name already exists. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1061,6 +1063,91 @@ Name | Type | Description  | Notes
 | **400** | Bad request |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="createcampaign"></a>
+# **CreateCampaign**
+> Campaign CreateCampaign (long applicationId, NewCampaign body)
+
+Create campaign
+
+Create a campaign. A campaign is part of an Application and contains a set of rules. 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class CreateCampaignExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://yourbaseurl.talon.one";
+            // Configure API key authorization: api_key_v1
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: management_key
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: manager_auth
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(config);
+            var applicationId = 789;  // long | The ID of the Application. It is displayed in your Talon.One deployment URL.
+            var body = new NewCampaign(); // NewCampaign | body
+
+            try
+            {
+                // Create campaign
+                Campaign result = apiInstance.CreateCampaign(applicationId, body);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ManagementApi.CreateCampaign: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
+ **body** | [**NewCampaign**](NewCampaign.md)| body | 
+
+### Return type
+
+[**Campaign**](Campaign.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1326,7 +1413,7 @@ Name | Type | Description  | Notes
 
 <a name="createcoupons"></a>
 # **CreateCoupons**
-> InlineResponse20011 CreateCoupons (long applicationId, long campaignId, NewCoupons body, string silent = null)
+> InlineResponse20013 CreateCoupons (long applicationId, long campaignId, NewCoupons body, string silent = null)
 
 Create coupons
 
@@ -1370,7 +1457,7 @@ namespace Example
             try
             {
                 // Create coupons
-                InlineResponse20011 result = apiInstance.CreateCoupons(applicationId, campaignId, body, silent);
+                InlineResponse20013 result = apiInstance.CreateCoupons(applicationId, campaignId, body, silent);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1395,7 +1482,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**InlineResponse20013**](InlineResponse20013.md)
 
 ### Authorization
 
@@ -1590,7 +1677,7 @@ Name | Type | Description  | Notes
 
 <a name="createcouponsformultiplerecipients"></a>
 # **CreateCouponsForMultipleRecipients**
-> InlineResponse20011 CreateCouponsForMultipleRecipients (long applicationId, long campaignId, NewCouponsForMultipleRecipients body, string silent = null)
+> InlineResponse20013 CreateCouponsForMultipleRecipients (long applicationId, long campaignId, NewCouponsForMultipleRecipients body, string silent = null)
 
 Create coupons for multiple recipients
 
@@ -1634,7 +1721,7 @@ namespace Example
             try
             {
                 // Create coupons for multiple recipients
-                InlineResponse20011 result = apiInstance.CreateCouponsForMultipleRecipients(applicationId, campaignId, body, silent);
+                InlineResponse20013 result = apiInstance.CreateCouponsForMultipleRecipients(applicationId, campaignId, body, silent);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1659,7 +1746,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**InlineResponse20013**](InlineResponse20013.md)
 
 ### Authorization
 
@@ -1933,7 +2020,7 @@ Name | Type | Description  | Notes
 
 Create ruleset (V2)
 
-Create a ruleset from promotion and strikethrough rules in the V2 JSON block format. A ruleset is a revision of all the rules of a campaign.  Only `group` and `passthrough` blocks are currently writable, with optional `onFailure` blocks. A payload containing any other block type is rejected. Each rule's `blocks` array may contain at most one block.
+Create a ruleset from promotion and strikethrough rules in the V2 JSON block format. A ruleset is a revision of all the rules of a campaign.  Only the first block of a rule can be a condition. Every other block must be an effect.
 
 ### Example
 ```csharp
@@ -4837,7 +4924,7 @@ Name | Type | Description  | Notes
 
 Export triggered effects
 
-Download a CSV file containing the triggered effects that match the given attributes.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The generated file can contain the following columns:  - `applicationid`: The ID of the Application. - `campaignid`: The ID of the campaign. - `couponid`: The ID of the coupon, when applicable to the effect. - `created`: The timestamp of the effect. - `event_type`: The name of the event. See the [docs](https://docs.talon.one/docs/dev/concepts/entities/events). - `eventid`: The internal ID of the effect. - `name`: The effect name. See the [docs](https://docs.talon.one/docs/dev/integration-api/api-effects). - `profileintegrationid`: The ID of the customer profile, when applicable. - `props`: The [properties](https://docs.talon.one/docs/dev/integration-api/api-effects) of the effect. - `ruleindex`: The index of the rule. - `rulesetid`: The ID of the rule set. - `sessionid`: The internal ID of the session that triggered the effect. - `profileid`: The internal ID of the customer profile. - `sessionintegrationid`: The integration ID of the session. - `total_revenue`: The total revenue. - `store_integration_id`: The integration ID of the store. You choose this ID when you create a store. 
+Download a CSV file containing the triggered effects that match the given attributes.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The generated file can contain the following columns:  - `applicationid`: The ID of the Application. - `campaignid`: The ID of the campaign. - `couponid`: The ID of the coupon, when applicable to the effect. - `created`: The timestamp of the effect. - `event_type`: The name of the event. See the [docs](https://docs.talon.one/docs/dev/concepts/entities/events). - `eventid`: The internal ID of the effect. - `name`: The effect name. See the [docs](https://docs.talon.one/docs/dev/integration-api/api-effects). - `profileintegrationid`: The ID of the customer profile, when applicable. - `props`: The [properties](https://docs.talon.one/docs/dev/integration-api/api-effects) of the effect. - `ruleindex`: The index of the rule. - `rulesetid`: The ID of the rule set. - `sessionid`: The internal ID of the session that triggered the effect. - `profileid`: The internal ID of the customer profile. - `sessionintegrationid`: The integration ID of the session. - `total_revenue`: The total revenue. - `store_integration_id`: The integration ID of the store. You choose this ID when you create a store. - `reward_id`: The ID of the reward whose rule generated this effect, when applicable. - `reward_integration_id`: The integration ID of the specific customer reward whose usage produced this effect, when applicable. 
 
 ### Example
 ```csharp
@@ -5013,11 +5100,11 @@ Name | Type | Description  | Notes
 
 <a name="exportloyaltybalances"></a>
 # **ExportLoyaltyBalances**
-> string ExportLoyaltyBalances (string loyaltyProgramId, DateTime? endDate = null, string balances = null)
+> string ExportLoyaltyBalances (string loyaltyProgramId, DateTime? endDate = null, string balances = null, List<string> subledgerIds = null)
 
 Export customer loyalty balances
 
-Download a CSV file containing the balance of each customer in the loyalty program.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The generated file can contain the following columns:  - `loyaltyProgramID`: The ID of the loyalty program. - `loyaltySubledger`: The name of the subledger, when applicable. - `profileIntegrationID`: The integration ID of the customer profile. - `currentBalance`: The current point balance. - `pendingBalance`: The number of pending points. - `expiredBalance`: The number of expired points. - `spentBalance`: The number of spent points. - `currentTier`: The tier that the customer is in at the time of the export. 
+Download a CSV file containing the balance of each customer in the loyalty program.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The generated file contains the following columns:  - `loyaltyProgramID`: The ID of the loyalty program. - `loyaltySubledger`: The name of the subledger, when applicable. - `profileIntegrationID`: The integration ID of the customer profile. - `currentBalance`: The current point balance. - `pendingBalance`: The number of pending points. - `expiredBalance`: The number of expired points. - `spentBalance`: The number of spent points. - `currentTier`: The tier that the customer is in at the time of the export. - `negativeBalance`: The number of negative points. Only contains a value when requested via `balances` and the program uses negative points. 
 
 ### Example
 ```csharp
@@ -5052,11 +5139,12 @@ namespace Example
             var loyaltyProgramId = loyaltyProgramId_example;  // string | The identifier for the loyalty program.
             var endDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. > - This parameter does not affect the `currentTier` field in the CSV file, which shows the customer's tier at the time of export.  (optional) 
             var balances = balances_example;  // string | Filters which balance fields are included in the CSV export. `currentBalance` is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - `currentBalance` - `pendingBalance` - `expiredBalance` - `spentBalance` - `negativeBalance`  Multiple values must be provided as a comma-separated list.  (optional) 
+            var subledgerIds = new List<string>(); // List<string> | Filters the results to specific subledgers.  **Note:** - When this parameter is not provided, the export includes all subledgers   and main ledger data for the specified loyalty program.  (optional) 
 
             try
             {
                 // Export customer loyalty balances
-                string result = apiInstance.ExportLoyaltyBalances(loyaltyProgramId, endDate, balances);
+                string result = apiInstance.ExportLoyaltyBalances(loyaltyProgramId, endDate, balances, subledgerIds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -5077,6 +5165,7 @@ Name | Type | Description  | Notes
  **loyaltyProgramId** | **string**| The identifier for the loyalty program. | 
  **endDate** | **DateTime?**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. &gt; - This parameter does not affect the &#x60;currentTier&#x60; field in the CSV file, which shows the customer&#39;s tier at the time of export.  | [optional] 
  **balances** | **string**| Filters which balance fields are included in the CSV export. &#x60;currentBalance&#x60; is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  | [optional] 
+ **subledgerIds** | [**List&lt;string&gt;**](string.md)| Filters the results to specific subledgers.  **Note:** - When this parameter is not provided, the export includes all subledgers   and main ledger data for the specified loyalty program.  | [optional] 
 
 ### Return type
 
@@ -5195,7 +5284,7 @@ Name | Type | Description  | Notes
 
 Export card's ledger log
 
-Download a CSV file containing a loyalty card ledger log of the loyalty program.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files). 
+Download a CSV file containing a loyalty card ledger log of the loyalty program.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The generated file can contain the following columns:  - `cardidentifier`: The identifier of the loyalty card. - `applicationid`: The ID of the Application. - `sessionid`: The ID of the session. - `customersessionid`: The integration ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The transaction type, such as `addition` or `subtraction`. - `name`: The reason for the transaction. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the points. - `expirydate`: The expiration date of the points. - `id`: The ID of the transaction. - `created`: The timestamp of the transaction creation. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign. - `transactionUUID`: Unique identifier of the transaction in the UUID format. - `validityDuration`: The duration for which the points remain active, relative to the activation date. - `remainingAmount`: The current unused amount of points, when applicable to `addition` transactions. 
 
 ### Example
 ```csharp
@@ -5466,7 +5555,7 @@ Name | Type | Description  | Notes
 
 Export customer's transaction logs
 
-Download a CSV file containing a customer's transaction logs in the loyalty program.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The transaction type, such as `addition` or `subtraction`. - `name`: The reason for the transaction. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign. - `flags`: The flags of the transaction, when applicable. The `createsNegativeBalance` flag indicates whether the transaction results in a negative balance. - `transactionUUID`: Unique identifier of the transaction in the UUID format. 
+Download a CSV file containing a customer's transaction logs in the loyalty program.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The transaction type, such as `addition` or `subtraction`. - `name`: The reason for the transaction. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign. - `flags`: The flags of the transaction, when applicable. The `createsNegativeBalance` flag indicates whether the transaction results in a negative balance. - `transactionUUID`: Unique identifier of the transaction in the UUID format. - `validityDuration`: The duration for which the points remain active, relative to the activation date. - `remainingAmount`: The current unused amount of points, when applicable to `addition` transactions. 
 
 ### Example
 ```csharp
@@ -5738,7 +5827,7 @@ Name | Type | Description  | Notes
 
 <a name="generatecouponrejections"></a>
 # **GenerateCouponRejections**
-> InlineResponse20055 GenerateCouponRejections (string sessionIntegrationId, decimal? applicationId = null, string language = null, string couponCode = null)
+> InlineResponse20058 GenerateCouponRejections (string sessionIntegrationId, decimal? applicationId = null, string language = null, string couponCode = null)
 
 Summarize coupon redemption failures in session
 
@@ -5782,7 +5871,7 @@ namespace Example
             try
             {
                 // Summarize coupon redemption failures in session
-                InlineResponse20055 result = apiInstance.GenerateCouponRejections(sessionIntegrationId, applicationId, language, couponCode);
+                InlineResponse20058 result = apiInstance.GenerateCouponRejections(sessionIntegrationId, applicationId, language, couponCode);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -5807,7 +5896,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20055**](InlineResponse20055.md)
+[**InlineResponse20058**](InlineResponse20058.md)
 
 ### Authorization
 
@@ -5827,7 +5916,7 @@ Name | Type | Description  | Notes
 
 <a name="getaccesslogswithouttotalcount"></a>
 # **GetAccessLogsWithoutTotalCount**
-> InlineResponse20024 GetAccessLogsWithoutTotalCount (long applicationId, DateTime rangeStart, DateTime rangeEnd, string path = null, string method = null, string status = null, long? pageSize = null, long? skip = null, string sort = null)
+> InlineResponse20027 GetAccessLogsWithoutTotalCount (long applicationId, DateTime rangeStart, DateTime rangeEnd, string path = null, string method = null, string status = null, long? pageSize = null, long? skip = null, string sort = null)
 
 Get access logs for Application
 
@@ -5876,7 +5965,7 @@ namespace Example
             try
             {
                 // Get access logs for Application
-                InlineResponse20024 result = apiInstance.GetAccessLogsWithoutTotalCount(applicationId, rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
+                InlineResponse20027 result = apiInstance.GetAccessLogsWithoutTotalCount(applicationId, rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -5906,7 +5995,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**InlineResponse20027**](InlineResponse20027.md)
 
 ### Authorization
 
@@ -6433,7 +6522,7 @@ Name | Type | Description  | Notes
 
 <a name="getadditionalcosts"></a>
 # **GetAdditionalCosts**
-> InlineResponse20041 GetAdditionalCosts (long? pageSize = null, long? skip = null, string sort = null)
+> InlineResponse20044 GetAdditionalCosts (long? pageSize = null, long? skip = null, string sort = null)
 
 List additional costs
 
@@ -6476,7 +6565,7 @@ namespace Example
             try
             {
                 // List additional costs
-                InlineResponse20041 result = apiInstance.GetAdditionalCosts(pageSize, skip, sort);
+                InlineResponse20044 result = apiInstance.GetAdditionalCosts(pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -6500,7 +6589,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**InlineResponse20044**](InlineResponse20044.md)
 
 ### Authorization
 
@@ -6858,7 +6947,7 @@ Name | Type | Description  | Notes
 
 <a name="getapplicationcustomerfriends"></a>
 # **GetApplicationCustomerFriends**
-> InlineResponse20038 GetApplicationCustomerFriends (long applicationId, string integrationId, long? pageSize = null, long? skip = null, string sort = null, bool? withTotalResultSize = null)
+> InlineResponse20041 GetApplicationCustomerFriends (long applicationId, string integrationId, long? pageSize = null, long? skip = null, string sort = null, bool? withTotalResultSize = null)
 
 List friends referred by customer profile
 
@@ -6904,7 +6993,7 @@ namespace Example
             try
             {
                 // List friends referred by customer profile
-                InlineResponse20038 result = apiInstance.GetApplicationCustomerFriends(applicationId, integrationId, pageSize, skip, sort, withTotalResultSize);
+                InlineResponse20041 result = apiInstance.GetApplicationCustomerFriends(applicationId, integrationId, pageSize, skip, sort, withTotalResultSize);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -6931,7 +7020,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20038**](InlineResponse20038.md)
+[**InlineResponse20041**](InlineResponse20041.md)
 
 ### Authorization
 
@@ -6951,7 +7040,7 @@ Name | Type | Description  | Notes
 
 <a name="getapplicationcustomers"></a>
 # **GetApplicationCustomers**
-> InlineResponse20026 GetApplicationCustomers (long applicationId, string integrationId = null, long? pageSize = null, long? skip = null, bool? withTotalResultSize = null)
+> InlineResponse20029 GetApplicationCustomers (long applicationId, string integrationId = null, long? pageSize = null, long? skip = null, bool? withTotalResultSize = null, bool? withLoyaltyMemberships = null)
 
 List application's customers
 
@@ -6992,11 +7081,12 @@ namespace Example
             var pageSize = 789;  // long? | The number of items in the response. (optional)  (default to 1000)
             var skip = 789;  // long? | The number of items to skip when paging through large result sets. (optional) 
             var withTotalResultSize = true;  // bool? | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When `true`: `totalResultSize` contains the total number of results for this query. - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page.  (optional) 
+            var withLoyaltyMemberships = true;  // bool? | When set to `true`, the `loyaltyProgramJoinDates` property returns the dates on which each customer joined the profile-based loyalty programs they are part of. This might decrease performance on large data sets. (optional) 
 
             try
             {
                 // List application's customers
-                InlineResponse20026 result = apiInstance.GetApplicationCustomers(applicationId, integrationId, pageSize, skip, withTotalResultSize);
+                InlineResponse20029 result = apiInstance.GetApplicationCustomers(applicationId, integrationId, pageSize, skip, withTotalResultSize, withLoyaltyMemberships);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -7019,10 +7109,11 @@ Name | Type | Description  | Notes
  **pageSize** | **long?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **long?**| The number of items to skip when paging through large result sets. | [optional] 
  **withTotalResultSize** | **bool?**| When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query. - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page.  | [optional] 
+ **withLoyaltyMemberships** | **bool?**| When set to &#x60;true&#x60;, the &#x60;loyaltyProgramJoinDates&#x60; property returns the dates on which each customer joined the profile-based loyalty programs they are part of. This might decrease performance on large data sets. | [optional] 
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -7042,7 +7133,7 @@ Name | Type | Description  | Notes
 
 <a name="getapplicationcustomersbyattributes"></a>
 # **GetApplicationCustomersByAttributes**
-> InlineResponse20027 GetApplicationCustomersByAttributes (long applicationId, CustomerProfileSearchQuery body, long? pageSize = null, long? skip = null, bool? withTotalResultSize = null)
+> InlineResponse20030 GetApplicationCustomersByAttributes (long applicationId, CustomerProfileSearchQuery body, long? pageSize = null, long? skip = null, bool? withTotalResultSize = null, bool? withLoyaltyMemberships = null)
 
 List application customers matching the given attributes
 
@@ -7083,11 +7174,12 @@ namespace Example
             var pageSize = 789;  // long? | The number of items in the response. (optional)  (default to 1000)
             var skip = 789;  // long? | The number of items to skip when paging through large result sets. (optional) 
             var withTotalResultSize = true;  // bool? | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When `true`: `totalResultSize` contains the total number of results for this query. - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page.  (optional) 
+            var withLoyaltyMemberships = true;  // bool? | When set to `true`, the `loyaltyProgramJoinDates` property returns the dates on which each customer joined the profile-based loyalty programs they are part of. This might decrease performance on large data sets. (optional) 
 
             try
             {
                 // List application customers matching the given attributes
-                InlineResponse20027 result = apiInstance.GetApplicationCustomersByAttributes(applicationId, body, pageSize, skip, withTotalResultSize);
+                InlineResponse20030 result = apiInstance.GetApplicationCustomersByAttributes(applicationId, body, pageSize, skip, withTotalResultSize, withLoyaltyMemberships);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -7110,10 +7202,11 @@ Name | Type | Description  | Notes
  **pageSize** | **long?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **long?**| The number of items to skip when paging through large result sets. | [optional] 
  **withTotalResultSize** | **bool?**| When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query. - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page.  | [optional] 
+ **withLoyaltyMemberships** | **bool?**| When set to &#x60;true&#x60;, the &#x60;loyaltyProgramJoinDates&#x60; property returns the dates on which each customer joined the profile-based loyalty programs they are part of. This might decrease performance on large data sets. | [optional] 
 
 ### Return type
 
-[**InlineResponse20027**](InlineResponse20027.md)
+[**InlineResponse20030**](InlineResponse20030.md)
 
 ### Authorization
 
@@ -7133,7 +7226,7 @@ Name | Type | Description  | Notes
 
 <a name="getapplicationeventtypes"></a>
 # **GetApplicationEventTypes**
-> InlineResponse20034 GetApplicationEventTypes (long applicationId, long? pageSize = null, long? skip = null, string sort = null)
+> InlineResponse20037 GetApplicationEventTypes (long applicationId, long? pageSize = null, long? skip = null, string sort = null)
 
 List Applications event types
 
@@ -7177,7 +7270,7 @@ namespace Example
             try
             {
                 // List Applications event types
-                InlineResponse20034 result = apiInstance.GetApplicationEventTypes(applicationId, pageSize, skip, sort);
+                InlineResponse20037 result = apiInstance.GetApplicationEventTypes(applicationId, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -7202,7 +7295,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20034**](InlineResponse20034.md)
+[**InlineResponse20037**](InlineResponse20037.md)
 
 ### Authorization
 
@@ -7222,7 +7315,7 @@ Name | Type | Description  | Notes
 
 <a name="getapplicationeventswithouttotalcount"></a>
 # **GetApplicationEventsWithoutTotalCount**
-> InlineResponse20033 GetApplicationEventsWithoutTotalCount (long applicationId, long? pageSize = null, long? skip = null, string sort = null, string type = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string session = null, string profile = null, string customerName = null, string customerEmail = null, string couponCode = null, string referralCode = null, string ruleQuery = null, string campaignQuery = null, string effectType = null)
+> InlineResponse20036 GetApplicationEventsWithoutTotalCount (long applicationId, long? pageSize = null, long? skip = null, string sort = null, string type = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string session = null, string profile = null, string customerName = null, string customerEmail = null, string couponCode = null, string referralCode = null, string ruleQuery = null, string campaignQuery = null, string effectType = null)
 
 List Applications events
 
@@ -7278,7 +7371,7 @@ namespace Example
             try
             {
                 // List Applications events
-                InlineResponse20033 result = apiInstance.GetApplicationEventsWithoutTotalCount(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery, effectType);
+                InlineResponse20036 result = apiInstance.GetApplicationEventsWithoutTotalCount(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery, effectType);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -7315,7 +7408,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**InlineResponse20036**](InlineResponse20036.md)
 
 ### Authorization
 
@@ -7420,7 +7513,7 @@ Name | Type | Description  | Notes
 
 <a name="getapplicationsessions"></a>
 # **GetApplicationSessions**
-> InlineResponse20031 GetApplicationSessions (long applicationId, long? pageSize = null, long? skip = null, string sort = null, bool? partialMatch = null, string profile = null, string state = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string coupon = null, string referral = null, string integrationId = null, string storeIntegrationId = null)
+> InlineResponse20034 GetApplicationSessions (long applicationId, long? pageSize = null, long? skip = null, string sort = null, bool? partialMatch = null, string profile = null, string state = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string coupon = null, string referral = null, string integrationId = null, string storeIntegrationId = null)
 
 List Application sessions
 
@@ -7473,7 +7566,7 @@ namespace Example
             try
             {
                 // List Application sessions
-                InlineResponse20031 result = apiInstance.GetApplicationSessions(applicationId, pageSize, skip, sort, partialMatch, profile, state, createdBefore, createdAfter, coupon, referral, integrationId, storeIntegrationId);
+                InlineResponse20034 result = apiInstance.GetApplicationSessions(applicationId, pageSize, skip, sort, partialMatch, profile, state, createdBefore, createdAfter, coupon, referral, integrationId, storeIntegrationId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -7507,7 +7600,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20034**](InlineResponse20034.md)
 
 ### Authorization
 
@@ -7527,7 +7620,7 @@ Name | Type | Description  | Notes
 
 <a name="getapplicationsessionsbycustomerattributes"></a>
 # **GetApplicationSessionsByCustomerAttributes**
-> InlineResponse20032 GetApplicationSessionsByCustomerAttributes (long applicationId, CustomerProfileSearchQuery body, long? pageSize = null, long? skip = null, bool? withTotalResultSize = null)
+> InlineResponse20035 GetApplicationSessionsByCustomerAttributes (long applicationId, CustomerProfileSearchQuery body, long? pageSize = null, long? skip = null, bool? withTotalResultSize = null)
 
 List Application sessions matching the given customer attributes
 
@@ -7572,7 +7665,7 @@ namespace Example
             try
             {
                 // List Application sessions matching the given customer attributes
-                InlineResponse20032 result = apiInstance.GetApplicationSessionsByCustomerAttributes(applicationId, body, pageSize, skip, withTotalResultSize);
+                InlineResponse20035 result = apiInstance.GetApplicationSessionsByCustomerAttributes(applicationId, body, pageSize, skip, withTotalResultSize);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -7598,7 +7691,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**InlineResponse20035**](InlineResponse20035.md)
 
 ### Authorization
 
@@ -7618,7 +7711,7 @@ Name | Type | Description  | Notes
 
 <a name="getapplications"></a>
 # **GetApplications**
-> InlineResponse2008 GetApplications (long? pageSize = null, long? skip = null, string sort = null)
+> InlineResponse20010 GetApplications (long? pageSize = null, long? skip = null, string sort = null)
 
 List Applications
 
@@ -7661,7 +7754,7 @@ namespace Example
             try
             {
                 // List Applications
-                InlineResponse2008 result = apiInstance.GetApplications(pageSize, skip, sort);
+                InlineResponse20010 result = apiInstance.GetApplications(pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -7685,7 +7778,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -7788,7 +7881,7 @@ Name | Type | Description  | Notes
 
 <a name="getattributes"></a>
 # **GetAttributes**
-> InlineResponse20039 GetAttributes (long? pageSize = null, long? skip = null, string sort = null, string entity = null, string applicationIds = null, string loyaltyProgramIds = null, string type = null, string kind = null, string search = null)
+> InlineResponse20042 GetAttributes (long? pageSize = null, long? skip = null, string sort = null, string entity = null, string applicationIds = null, string loyaltyProgramIds = null, string type = null, string kind = null, string search = null)
 
 List custom attributes
 
@@ -7837,7 +7930,7 @@ namespace Example
             try
             {
                 // List custom attributes
-                InlineResponse20039 result = apiInstance.GetAttributes(pageSize, skip, sort, entity, applicationIds, loyaltyProgramIds, type, kind, search);
+                InlineResponse20042 result = apiInstance.GetAttributes(pageSize, skip, sort, entity, applicationIds, loyaltyProgramIds, type, kind, search);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -7867,7 +7960,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20039**](InlineResponse20039.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 
@@ -7887,7 +7980,7 @@ Name | Type | Description  | Notes
 
 <a name="getaudiencememberships"></a>
 # **GetAudienceMemberships**
-> InlineResponse20037 GetAudienceMemberships (long audienceId, long? pageSize = null, long? skip = null, string sort = null, string profileQuery = null)
+> InlineResponse20040 GetAudienceMemberships (long audienceId, long? pageSize = null, long? skip = null, string sort = null, string profileQuery = null)
 
 List audience members
 
@@ -7932,7 +8025,7 @@ namespace Example
             try
             {
                 // List audience members
-                InlineResponse20037 result = apiInstance.GetAudienceMemberships(audienceId, pageSize, skip, sort, profileQuery);
+                InlineResponse20040 result = apiInstance.GetAudienceMemberships(audienceId, pageSize, skip, sort, profileQuery);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -7958,7 +8051,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20037**](InlineResponse20037.md)
+[**InlineResponse20040**](InlineResponse20040.md)
 
 ### Authorization
 
@@ -7979,7 +8072,7 @@ Name | Type | Description  | Notes
 
 <a name="getaudiences"></a>
 # **GetAudiences**
-> InlineResponse20035 GetAudiences (long? pageSize = null, long? skip = null, string sort = null, bool? withTotalResultSize = null)
+> InlineResponse20038 GetAudiences (long? pageSize = null, long? skip = null, string sort = null, bool? withTotalResultSize = null)
 
 List audiences
 
@@ -8023,7 +8116,7 @@ namespace Example
             try
             {
                 // List audiences
-                InlineResponse20035 result = apiInstance.GetAudiences(pageSize, skip, sort, withTotalResultSize);
+                InlineResponse20038 result = apiInstance.GetAudiences(pageSize, skip, sort, withTotalResultSize);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -8048,7 +8141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20035**](InlineResponse20035.md)
+[**InlineResponse20038**](InlineResponse20038.md)
 
 ### Authorization
 
@@ -8068,7 +8161,7 @@ Name | Type | Description  | Notes
 
 <a name="getaudiencesanalytics"></a>
 # **GetAudiencesAnalytics**
-> InlineResponse20036 GetAudiencesAnalytics (string audienceIds, string sort = null)
+> InlineResponse20039 GetAudiencesAnalytics (string audienceIds, string sort = null)
 
 List audience analytics
 
@@ -8110,7 +8203,7 @@ namespace Example
             try
             {
                 // List audience analytics
-                InlineResponse20036 result = apiInstance.GetAudiencesAnalytics(audienceIds, sort);
+                InlineResponse20039 result = apiInstance.GetAudiencesAnalytics(audienceIds, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -8133,7 +8226,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20036**](InlineResponse20036.md)
+[**InlineResponse20039**](InlineResponse20039.md)
 
 ### Authorization
 
@@ -8238,7 +8331,7 @@ Name | Type | Description  | Notes
 
 <a name="getcampaignanalytics"></a>
 # **GetCampaignAnalytics**
-> InlineResponse20025 GetCampaignAnalytics (long applicationId, long campaignId, DateTime rangeStart, DateTime rangeEnd, string granularity = null)
+> InlineResponse20028 GetCampaignAnalytics (long applicationId, long campaignId, DateTime rangeStart, DateTime rangeEnd, string granularity = null)
 
 Get analytics of campaigns
 
@@ -8283,7 +8376,7 @@ namespace Example
             try
             {
                 // Get analytics of campaigns
-                InlineResponse20025 result = apiInstance.GetCampaignAnalytics(applicationId, campaignId, rangeStart, rangeEnd, granularity);
+                InlineResponse20028 result = apiInstance.GetCampaignAnalytics(applicationId, campaignId, rangeStart, rangeEnd, granularity);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -8309,7 +8402,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -8329,7 +8422,7 @@ Name | Type | Description  | Notes
 
 <a name="getcampaignbyattributes"></a>
 # **GetCampaignByAttributes**
-> InlineResponse2009 GetCampaignByAttributes (long applicationId, CampaignSearch body, long? pageSize = null, long? skip = null, string sort = null, string campaignState = null)
+> InlineResponse20011 GetCampaignByAttributes (long applicationId, CampaignSearch body, long? pageSize = null, long? skip = null, string sort = null, string campaignState = null)
 
 List campaigns that match the given attributes
 
@@ -8375,7 +8468,7 @@ namespace Example
             try
             {
                 // List campaigns that match the given attributes
-                InlineResponse2009 result = apiInstance.GetCampaignByAttributes(applicationId, body, pageSize, skip, sort, campaignState);
+                InlineResponse20011 result = apiInstance.GetCampaignByAttributes(applicationId, body, pageSize, skip, sort, campaignState);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -8402,7 +8495,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -8505,7 +8598,7 @@ Name | Type | Description  | Notes
 
 <a name="getcampaigngroups"></a>
 # **GetCampaignGroups**
-> InlineResponse20014 GetCampaignGroups (long? pageSize = null, long? skip = null, string sort = null)
+> InlineResponse20016 GetCampaignGroups (long? pageSize = null, long? skip = null, string sort = null)
 
 List campaign access groups
 
@@ -8548,7 +8641,7 @@ namespace Example
             try
             {
                 // List campaign access groups
-                InlineResponse20014 result = apiInstance.GetCampaignGroups(pageSize, skip, sort);
+                InlineResponse20016 result = apiInstance.GetCampaignGroups(pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -8572,7 +8665,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**InlineResponse20016**](InlineResponse20016.md)
 
 ### Authorization
 
@@ -8592,7 +8685,7 @@ Name | Type | Description  | Notes
 
 <a name="getcampaigntemplates"></a>
 # **GetCampaignTemplates**
-> InlineResponse20015 GetCampaignTemplates (long? pageSize = null, long? skip = null, string sort = null, string state = null, string name = null, string tags = null, long? userId = null)
+> InlineResponse20017 GetCampaignTemplates (long? pageSize = null, long? skip = null, string sort = null, string state = null, string name = null, string tags = null, long? userId = null)
 
 List campaign templates
 
@@ -8639,7 +8732,7 @@ namespace Example
             try
             {
                 // List campaign templates
-                InlineResponse20015 result = apiInstance.GetCampaignTemplates(pageSize, skip, sort, state, name, tags, userId);
+                InlineResponse20017 result = apiInstance.GetCampaignTemplates(pageSize, skip, sort, state, name, tags, userId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -8667,7 +8760,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**InlineResponse20017**](InlineResponse20017.md)
 
 ### Authorization
 
@@ -8687,7 +8780,7 @@ Name | Type | Description  | Notes
 
 <a name="getcampaigns"></a>
 # **GetCampaigns**
-> InlineResponse2009 GetCampaigns (long applicationId, long? pageSize = null, long? skip = null, string sort = null, string campaignState = null, string name = null, List<string> tags = null, DateTime? createdBefore = null, DateTime? createdAfter = null, DateTime? startBefore = null, DateTime? startAfter = null, DateTime? endBefore = null, DateTime? endAfter = null, long? campaignGroupId = null, long? templateId = null, long? storeId = null)
+> InlineResponse20011 GetCampaigns (long applicationId, long? pageSize = null, long? skip = null, string sort = null, string campaignState = null, string name = null, List<string> tags = null, DateTime? createdBefore = null, DateTime? createdAfter = null, DateTime? startBefore = null, DateTime? startAfter = null, DateTime? endBefore = null, DateTime? endAfter = null, long? campaignGroupId = null, long? templateId = null, long? storeId = null)
 
 List campaigns
 
@@ -8743,7 +8836,7 @@ namespace Example
             try
             {
                 // List campaigns
-                InlineResponse2009 result = apiInstance.GetCampaigns(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter, startBefore, startAfter, endBefore, endAfter, campaignGroupId, templateId, storeId);
+                InlineResponse20011 result = apiInstance.GetCampaigns(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter, startBefore, startAfter, endBefore, endAfter, campaignGroupId, templateId, storeId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -8780,7 +8873,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -8801,7 +8894,7 @@ Name | Type | Description  | Notes
 
 <a name="getchanges"></a>
 # **GetChanges**
-> InlineResponse20045 GetChanges (long? pageSize = null, long? skip = null, string sort = null, decimal? applicationId = null, string entityPath = null, long? userId = null, DateTime? createdBefore = null, DateTime? createdAfter = null, bool? withTotalResultSize = null, long? managementKeyId = null, bool? includeOld = null)
+> InlineResponse20048 GetChanges (long? pageSize = null, long? skip = null, string sort = null, decimal? applicationId = null, string entityPath = null, long? userId = null, DateTime? createdBefore = null, DateTime? createdAfter = null, bool? withTotalResultSize = null, long? managementKeyId = null, bool? includeOld = null)
 
 Get audit logs for an account
 
@@ -8852,7 +8945,7 @@ namespace Example
             try
             {
                 // Get audit logs for an account
-                InlineResponse20045 result = apiInstance.GetChanges(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, managementKeyId, includeOld);
+                InlineResponse20048 result = apiInstance.GetChanges(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, managementKeyId, includeOld);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -8884,7 +8977,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20045**](InlineResponse20045.md)
+[**InlineResponse20048**](InlineResponse20048.md)
 
 ### Authorization
 
@@ -8992,7 +9085,7 @@ Name | Type | Description  | Notes
 
 <a name="getcollectionitems"></a>
 # **GetCollectionItems**
-> InlineResponse20023 GetCollectionItems (long collectionId, long? pageSize = null, long? skip = null)
+> InlineResponse20026 GetCollectionItems (long collectionId, long? pageSize = null, long? skip = null)
 
 Get collection items
 
@@ -9035,7 +9128,7 @@ namespace Example
             try
             {
                 // Get collection items
-                InlineResponse20023 result = apiInstance.GetCollectionItems(collectionId, pageSize, skip);
+                InlineResponse20026 result = apiInstance.GetCollectionItems(collectionId, pageSize, skip);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -9059,7 +9152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -9080,7 +9173,7 @@ Name | Type | Description  | Notes
 
 <a name="getcouponswithouttotalcount"></a>
 # **GetCouponsWithoutTotalCount**
-> InlineResponse20012 GetCouponsWithoutTotalCount (long applicationId, long campaignId, long? pageSize = null, long? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, string redeemed = null, long? referralId = null, string recipientIntegrationId = null, string batchId = null, bool? exactMatch = null, DateTime? expiresBefore = null, DateTime? expiresAfter = null, DateTime? startsBefore = null, DateTime? startsAfter = null, bool? valuesOnly = null)
+> InlineResponse20014 GetCouponsWithoutTotalCount (long applicationId, long campaignId, long? pageSize = null, long? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, string redeemed = null, long? referralId = null, string recipientIntegrationId = null, string batchId = null, bool? exactMatch = null, DateTime? expiresBefore = null, DateTime? expiresAfter = null, DateTime? startsBefore = null, DateTime? startsAfter = null, bool? valuesOnly = null)
 
 List coupons
 
@@ -9140,7 +9233,7 @@ namespace Example
             try
             {
                 // List coupons
-                InlineResponse20012 result = apiInstance.GetCouponsWithoutTotalCount(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, redeemed, referralId, recipientIntegrationId, batchId, exactMatch, expiresBefore, expiresAfter, startsBefore, startsAfter, valuesOnly);
+                InlineResponse20014 result = apiInstance.GetCouponsWithoutTotalCount(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, redeemed, referralId, recipientIntegrationId, batchId, exactMatch, expiresBefore, expiresAfter, startsBefore, startsAfter, valuesOnly);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -9181,7 +9274,92 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse20014**](InlineResponse20014.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getcurrentrevision"></a>
+# **GetCurrentRevision**
+> Revision GetCurrentRevision (long applicationId, long campaignId)
+
+Get current revision version
+
+Get the current revision version for the given campaign.  **Note:** The [Campaign staging and revisions](https://docs.talon.one/docs/product/applications/manage-general-settings#campaign-staging-and-revisions) feature must be enabled for your Application. For more information, see [Revise campaigns](https://docs.talon.one/docs/product/campaigns/revise-campaigns). 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class GetCurrentRevisionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://yourbaseurl.talon.one";
+            // Configure API key authorization: api_key_v1
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: management_key
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: manager_auth
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(config);
+            var applicationId = 789;  // long | The ID of the Application. It is displayed in your Talon.One deployment URL.
+            var campaignId = 789;  // long | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+
+            try
+            {
+                // Get current revision version
+                Revision result = apiInstance.GetCurrentRevision(applicationId, campaignId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ManagementApi.GetCurrentRevision: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
+ **campaignId** | **long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
+
+### Return type
+
+[**Revision**](Revision.md)
 
 ### Authorization
 
@@ -9294,7 +9472,7 @@ Name | Type | Description  | Notes
 
 <a name="getcustomeractivityreportswithouttotalcount"></a>
 # **GetCustomerActivityReportsWithoutTotalCount**
-> InlineResponse20030 GetCustomerActivityReportsWithoutTotalCount (DateTime rangeStart, DateTime rangeEnd, long applicationId, long? pageSize = null, long? skip = null, string sort = null, string name = null, string integrationId = null, string campaignName = null, string advocateName = null)
+> InlineResponse20033 GetCustomerActivityReportsWithoutTotalCount (DateTime rangeStart, DateTime rangeEnd, long applicationId, long? pageSize = null, long? skip = null, string sort = null, string name = null, string integrationId = null, string campaignName = null, string advocateName = null)
 
 Get Activity Reports for Application Customers
 
@@ -9344,7 +9522,7 @@ namespace Example
             try
             {
                 // Get Activity Reports for Application Customers
-                InlineResponse20030 result = apiInstance.GetCustomerActivityReportsWithoutTotalCount(rangeStart, rangeEnd, applicationId, pageSize, skip, sort, name, integrationId, campaignName, advocateName);
+                InlineResponse20033 result = apiInstance.GetCustomerActivityReportsWithoutTotalCount(rangeStart, rangeEnd, applicationId, pageSize, skip, sort, name, integrationId, campaignName, advocateName);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -9375,7 +9553,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20033**](InlineResponse20033.md)
 
 ### Authorization
 
@@ -9569,7 +9747,7 @@ Name | Type | Description  | Notes
 
 <a name="getcustomerprofileachievementprogress"></a>
 # **GetCustomerProfileAchievementProgress**
-> InlineResponse20054 GetCustomerProfileAchievementProgress (long applicationId, string integrationId, long? pageSize = null, long? skip = null, long? achievementId = null, string title = null)
+> InlineResponse20057 GetCustomerProfileAchievementProgress (long applicationId, string integrationId, long? pageSize = null, long? skip = null, long? achievementId = null, string title = null)
 
 List customer achievements
 
@@ -9615,7 +9793,7 @@ namespace Example
             try
             {
                 // List customer achievements
-                InlineResponse20054 result = apiInstance.GetCustomerProfileAchievementProgress(applicationId, integrationId, pageSize, skip, achievementId, title);
+                InlineResponse20057 result = apiInstance.GetCustomerProfileAchievementProgress(applicationId, integrationId, pageSize, skip, achievementId, title);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -9642,7 +9820,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20054**](InlineResponse20054.md)
+[**InlineResponse20057**](InlineResponse20057.md)
 
 ### Authorization
 
@@ -9664,7 +9842,7 @@ Name | Type | Description  | Notes
 
 <a name="getcustomerprofiles"></a>
 # **GetCustomerProfiles**
-> InlineResponse20029 GetCustomerProfiles (long? pageSize = null, long? skip = null, bool? sandbox = null)
+> InlineResponse20032 GetCustomerProfiles (long? pageSize = null, long? skip = null, bool? sandbox = null)
 
 List customer profiles
 
@@ -9707,7 +9885,7 @@ namespace Example
             try
             {
                 // List customer profiles
-                InlineResponse20029 result = apiInstance.GetCustomerProfiles(pageSize, skip, sandbox);
+                InlineResponse20032 result = apiInstance.GetCustomerProfiles(pageSize, skip, sandbox);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -9731,7 +9909,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -9751,7 +9929,7 @@ Name | Type | Description  | Notes
 
 <a name="getcustomersbyattributes"></a>
 # **GetCustomersByAttributes**
-> InlineResponse20028 GetCustomersByAttributes (CustomerProfileSearchQuery body, long? pageSize = null, long? skip = null, bool? sandbox = null)
+> InlineResponse20031 GetCustomersByAttributes (CustomerProfileSearchQuery body, long? pageSize = null, long? skip = null, bool? sandbox = null)
 
 List customer profiles matching the given attributes
 
@@ -9795,7 +9973,7 @@ namespace Example
             try
             {
                 // List customer profiles matching the given attributes
-                InlineResponse20028 result = apiInstance.GetCustomersByAttributes(body, pageSize, skip, sandbox);
+                InlineResponse20031 result = apiInstance.GetCustomersByAttributes(body, pageSize, skip, sandbox);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -9820,7 +9998,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -9840,7 +10018,7 @@ Name | Type | Description  | Notes
 
 <a name="getdashboardstatistics"></a>
 # **GetDashboardStatistics**
-> InlineResponse20018 GetDashboardStatistics (long loyaltyProgramId, DateTime rangeStart, DateTime rangeEnd, string subledgerId = null)
+> InlineResponse20020 GetDashboardStatistics (long loyaltyProgramId, DateTime rangeStart, DateTime rangeEnd, string subledgerId = null)
 
 Get statistics for loyalty dashboard
 
@@ -9884,7 +10062,7 @@ namespace Example
             try
             {
                 // Get statistics for loyalty dashboard
-                InlineResponse20018 result = apiInstance.GetDashboardStatistics(loyaltyProgramId, rangeStart, rangeEnd, subledgerId);
+                InlineResponse20020 result = apiInstance.GetDashboardStatistics(loyaltyProgramId, rangeStart, rangeEnd, subledgerId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -9909,7 +10087,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20018**](InlineResponse20018.md)
+[**InlineResponse20020**](InlineResponse20020.md)
 
 ### Authorization
 
@@ -9929,7 +10107,7 @@ Name | Type | Description  | Notes
 
 <a name="geteventtypes"></a>
 # **GetEventTypes**
-> InlineResponse20043 GetEventTypes (string name = null, bool? includeOldVersions = null, long? pageSize = null, long? skip = null, string sort = null)
+> InlineResponse20046 GetEventTypes (string name = null, bool? includeOldVersions = null, long? pageSize = null, long? skip = null, string sort = null)
 
 List event types
 
@@ -9974,7 +10152,7 @@ namespace Example
             try
             {
                 // List event types
-                InlineResponse20043 result = apiInstance.GetEventTypes(name, includeOldVersions, pageSize, skip, sort);
+                InlineResponse20046 result = apiInstance.GetEventTypes(name, includeOldVersions, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -10000,7 +10178,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20043**](InlineResponse20043.md)
+[**InlineResponse20046**](InlineResponse20046.md)
 
 ### Authorization
 
@@ -10105,7 +10283,7 @@ Name | Type | Description  | Notes
 
 <a name="getexports"></a>
 # **GetExports**
-> InlineResponse20046 GetExports (long? pageSize = null, long? skip = null, decimal? applicationId = null, long? campaignId = null, string entity = null)
+> InlineResponse20049 GetExports (long? pageSize = null, long? skip = null, decimal? applicationId = null, long? campaignId = null, string entity = null)
 
 Get exports
 
@@ -10150,7 +10328,7 @@ namespace Example
             try
             {
                 // Get exports
-                InlineResponse20046 result = apiInstance.GetExports(pageSize, skip, applicationId, campaignId, entity);
+                InlineResponse20049 result = apiInstance.GetExports(pageSize, skip, applicationId, campaignId, entity);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -10176,7 +10354,90 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20046**](InlineResponse20046.md)
+[**InlineResponse20049**](InlineResponse20049.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getgiveawayspool"></a>
+# **GetGiveawaysPool**
+> GiveawaysPool GetGiveawaysPool (long poolId)
+
+Get giveaway pool
+
+Retrieve the details of a specified giveaway pool.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class GetGiveawaysPoolExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://yourbaseurl.talon.one";
+            // Configure API key authorization: api_key_v1
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: management_key
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: manager_auth
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(config);
+            var poolId = 789;  // long | The ID of the pool. You can find it in the Campaign Manager, in the **Incentives** section.
+
+            try
+            {
+                // Get giveaway pool
+                GiveawaysPool result = apiInstance.GetGiveawaysPool(poolId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ManagementApi.GetGiveawaysPool: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **poolId** | **long**| The ID of the pool. You can find it in the Campaign Manager, in the **Incentives** section. | 
+
+### Return type
+
+[**GiveawaysPool**](GiveawaysPool.md)
 
 ### Authorization
 
@@ -10284,7 +10545,7 @@ Name | Type | Description  | Notes
 
 <a name="getloyaltycardtransactionlogs"></a>
 # **GetLoyaltyCardTransactionLogs**
-> InlineResponse20021 GetLoyaltyCardTransactionLogs (long loyaltyProgramId, string loyaltyCardId, DateTime? startDate = null, DateTime? endDate = null, long? pageSize = null, long? skip = null, string subledgerId = null, List<string> customerSessionIDs = null, List<string> transactionUUIDs = null)
+> InlineResponse20023 GetLoyaltyCardTransactionLogs (long loyaltyProgramId, string loyaltyCardId, DateTime? startDate = null, DateTime? endDate = null, long? pageSize = null, long? skip = null, string subledgerId = null, List<string> customerSessionIDs = null, List<string> transactionUUIDs = null)
 
 List card's transactions (Management API)
 
@@ -10333,7 +10594,7 @@ namespace Example
             try
             {
                 // List card's transactions (Management API)
-                InlineResponse20021 result = apiInstance.GetLoyaltyCardTransactionLogs(loyaltyProgramId, loyaltyCardId, startDate, endDate, pageSize, skip, subledgerId, customerSessionIDs, transactionUUIDs);
+                InlineResponse20023 result = apiInstance.GetLoyaltyCardTransactionLogs(loyaltyProgramId, loyaltyCardId, startDate, endDate, pageSize, skip, subledgerId, customerSessionIDs, transactionUUIDs);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -10363,7 +10624,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 
@@ -10385,7 +10646,7 @@ Name | Type | Description  | Notes
 
 <a name="getloyaltycards"></a>
 # **GetLoyaltyCards**
-> InlineResponse20020 GetLoyaltyCards (long loyaltyProgramId, long? pageSize = null, long? skip = null, string sort = null, string identifier = null, long? profileId = null, string batchId = null)
+> InlineResponse20022 GetLoyaltyCards (long loyaltyProgramId, long? pageSize = null, long? skip = null, string sort = null, string identifier = null, long? profileId = null, string batchId = null)
 
 List loyalty cards
 
@@ -10432,7 +10693,7 @@ namespace Example
             try
             {
                 // List loyalty cards
-                InlineResponse20020 result = apiInstance.GetLoyaltyCards(loyaltyProgramId, pageSize, skip, sort, identifier, profileId, batchId);
+                InlineResponse20022 result = apiInstance.GetLoyaltyCards(loyaltyProgramId, pageSize, skip, sort, identifier, profileId, batchId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -10460,7 +10721,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20020**](InlineResponse20020.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -10746,11 +11007,11 @@ Name | Type | Description  | Notes
 
 <a name="getloyaltyprogramprofileledgertransactions"></a>
 # **GetLoyaltyProgramProfileLedgerTransactions**
-> InlineResponse2005 GetLoyaltyProgramProfileLedgerTransactions (long loyaltyProgramId, string integrationId, List<string> customerSessionIDs = null, List<string> transactionUUIDs = null, string subledgerId = null, string loyaltyTransactionType = null, DateTime? startDate = null, DateTime? endDate = null, long? pageSize = null, long? skip = null, bool? awaitsActivation = null)
+> InlineResponse2007 GetLoyaltyProgramProfileLedgerTransactions (long loyaltyProgramId, string integrationId, List<string> customerSessionIDs = null, List<string> transactionUUIDs = null, string subledgerId = null, string loyaltyTransactionType = null, DateTime? startDate = null, DateTime? endDate = null, long? pageSize = null, long? skip = null, bool? includeReferences = null, bool? awaitsActivation = null)
 
 List customer's loyalty transactions (Management API)
 
-Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  > [!note] **Note** > - For most use cases, especially real-time integrations, use the Integration API endpoint: >   [List customer's loyalty transactions](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions). > - To retrieve all loyalty program transaction logs in a given loyalty program, use the >   [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
+Retrieve paginated results of loyalty transaction logs for the given integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger), and include the UUIDs of transactions referenced by deductions. If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  > [!note] **Note** > - For most use cases, especially real-time integrations, use the Integration API endpoint: >   [List customer's loyalty transactions](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions). > - To retrieve all loyalty program transaction logs in a given loyalty program, use the >   [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
 
 ### Example
 ```csharp
@@ -10792,12 +11053,13 @@ namespace Example
             var endDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Date and time by which results are returned. Results are filtered by transaction creation date.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional) 
             var pageSize = 789;  // long? | The number of items in the response. (optional)  (default to 50)
             var skip = 789;  // long? | The number of items to skip when paging through large result sets. (optional) 
+            var includeReferences = true;  // bool? | Whether to include the UUIDs of transactions referenced by deductions.  **Note:** Enabling this can decrease query performance, especially when no date filter is applied to a large transaction history.  (optional)  (default to false)
             var awaitsActivation = true;  // bool? | If `true`: Filters results to include only point transactions that have action-based activation and have not expired.  If `false`: Returns a `400` response.  (optional) 
 
             try
             {
                 // List customer's loyalty transactions (Management API)
-                InlineResponse2005 result = apiInstance.GetLoyaltyProgramProfileLedgerTransactions(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation);
+                InlineResponse2007 result = apiInstance.GetLoyaltyProgramProfileLedgerTransactions(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, includeReferences, awaitsActivation);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -10825,11 +11087,12 @@ Name | Type | Description  | Notes
  **endDate** | **DateTime?**| Date and time by which results are returned. Results are filtered by transaction creation date.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
  **pageSize** | **long?**| The number of items in the response. | [optional] [default to 50]
  **skip** | **long?**| The number of items to skip when paging through large result sets. | [optional] 
+ **includeReferences** | **bool?**| Whether to include the UUIDs of transactions referenced by deductions.  **Note:** Enabling this can decrease query performance, especially when no date filter is applied to a large transaction history.  | [optional] [default to false]
  **awaitsActivation** | **bool?**| If &#x60;true&#x60;: Filters results to include only point transactions that have action-based activation and have not expired.  If &#x60;false&#x60;: Returns a &#x60;400&#x60; response.  | [optional] 
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -10852,7 +11115,7 @@ Name | Type | Description  | Notes
 
 <a name="getloyaltyprogramtransactions"></a>
 # **GetLoyaltyProgramTransactions**
-> InlineResponse20019 GetLoyaltyProgramTransactions (long loyaltyProgramId, string loyaltyTransactionType = null, string subledgerId = null, List<string> customerSessionIDs = null, List<string> transactionUUIDs = null, DateTime? startDate = null, DateTime? endDate = null, long? pageSize = null, long? skip = null, bool? awaitsActivation = null)
+> InlineResponse20021 GetLoyaltyProgramTransactions (long loyaltyProgramId, string loyaltyTransactionType = null, string subledgerId = null, List<string> customerSessionIDs = null, List<string> transactionUUIDs = null, DateTime? startDate = null, DateTime? endDate = null, long? pageSize = null, long? skip = null, bool? awaitsActivation = null)
 
 List loyalty program transactions
 
@@ -10902,7 +11165,7 @@ namespace Example
             try
             {
                 // List loyalty program transactions
-                InlineResponse20019 result = apiInstance.GetLoyaltyProgramTransactions(loyaltyProgramId, loyaltyTransactionType, subledgerId, customerSessionIDs, transactionUUIDs, startDate, endDate, pageSize, skip, awaitsActivation);
+                InlineResponse20021 result = apiInstance.GetLoyaltyProgramTransactions(loyaltyProgramId, loyaltyTransactionType, subledgerId, customerSessionIDs, transactionUUIDs, startDate, endDate, pageSize, skip, awaitsActivation);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -10933,7 +11196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**InlineResponse20021**](InlineResponse20021.md)
 
 ### Authorization
 
@@ -10956,7 +11219,7 @@ Name | Type | Description  | Notes
 
 <a name="getloyaltyprograms"></a>
 # **GetLoyaltyPrograms**
-> InlineResponse20017 GetLoyaltyPrograms ()
+> InlineResponse20019 GetLoyaltyPrograms ()
 
 List loyalty programs
 
@@ -10996,7 +11259,7 @@ namespace Example
             try
             {
                 // List loyalty programs
-                InlineResponse20017 result = apiInstance.GetLoyaltyPrograms();
+                InlineResponse20019 result = apiInstance.GetLoyaltyPrograms();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -11015,7 +11278,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**InlineResponse20019**](InlineResponse20019.md)
 
 ### Authorization
 
@@ -11229,7 +11492,7 @@ Name | Type | Description  | Notes
 
 <a name="getreferralswithouttotalcount"></a>
 # **GetReferralsWithoutTotalCount**
-> InlineResponse20013 GetReferralsWithoutTotalCount (long applicationId, long campaignId, long? pageSize = null, long? skip = null, string sort = null, string code = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, string advocate = null)
+> InlineResponse20015 GetReferralsWithoutTotalCount (long applicationId, long campaignId, long? pageSize = null, long? skip = null, string sort = null, string code = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, string advocate = null)
 
 List referrals
 
@@ -11280,7 +11543,7 @@ namespace Example
             try
             {
                 // List referrals
-                InlineResponse20013 result = apiInstance.GetReferralsWithoutTotalCount(applicationId, campaignId, pageSize, skip, sort, code, createdBefore, createdAfter, valid, usable, advocate);
+                InlineResponse20015 result = apiInstance.GetReferralsWithoutTotalCount(applicationId, campaignId, pageSize, skip, sort, code, createdBefore, createdAfter, valid, usable, advocate);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -11312,7 +11575,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 
@@ -11589,7 +11852,7 @@ Name | Type | Description  | Notes
 
 <a name="getrulesets"></a>
 # **GetRulesets**
-> InlineResponse20010 GetRulesets (long applicationId, long campaignId, long? pageSize = null, long? skip = null, string sort = null)
+> InlineResponse20012 GetRulesets (long applicationId, long campaignId, long? pageSize = null, long? skip = null, string sort = null)
 
 List campaign rulesets
 
@@ -11634,7 +11897,7 @@ namespace Example
             try
             {
                 // List campaign rulesets
-                InlineResponse20010 result = apiInstance.GetRulesets(applicationId, campaignId, pageSize, skip, sort);
+                InlineResponse20012 result = apiInstance.GetRulesets(applicationId, campaignId, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -11660,7 +11923,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -11849,7 +12112,7 @@ Name | Type | Description  | Notes
 
 <a name="getusers"></a>
 # **GetUsers**
-> InlineResponse20044 GetUsers (long? pageSize = null, long? skip = null, string sort = null)
+> InlineResponse20047 GetUsers (long? pageSize = null, long? skip = null, string sort = null)
 
 List users in account
 
@@ -11892,7 +12155,7 @@ namespace Example
             try
             {
                 // List users in account
-                InlineResponse20044 result = apiInstance.GetUsers(pageSize, skip, sort);
+                InlineResponse20047 result = apiInstance.GetUsers(pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -11916,7 +12179,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20044**](InlineResponse20044.md)
+[**InlineResponse20047**](InlineResponse20047.md)
 
 ### Authorization
 
@@ -12019,7 +12282,7 @@ Name | Type | Description  | Notes
 
 <a name="getwebhooks"></a>
 # **GetWebhooks**
-> InlineResponse20042 GetWebhooks (string applicationIds = null, string sort = null, long? pageSize = null, long? skip = null, string creationType = null, string visibility = null, long? outgoingIntegrationsTypeId = null, string title = null)
+> InlineResponse20045 GetWebhooks (string applicationIds = null, string sort = null, long? pageSize = null, long? skip = null, string creationType = null, string visibility = null, long? outgoingIntegrationsTypeId = null, string title = null)
 
 List webhooks
 
@@ -12067,7 +12330,7 @@ namespace Example
             try
             {
                 // List webhooks
-                InlineResponse20042 result = apiInstance.GetWebhooks(applicationIds, sort, pageSize, skip, creationType, visibility, outgoingIntegrationsTypeId, title);
+                InlineResponse20045 result = apiInstance.GetWebhooks(applicationIds, sort, pageSize, skip, creationType, visibility, outgoingIntegrationsTypeId, title);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -12096,7 +12359,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**InlineResponse20045**](InlineResponse20045.md)
 
 ### Authorization
 
@@ -12919,7 +13182,7 @@ Name | Type | Description  | Notes
 
 Import join dates for a loyalty program
 
-Upload a CSV file containing customer profile IDs and their join dates for the specified loyalty program. Send the file as multipart data.  > [!important] This endpoint only works with profile-based loyalty programs.  The CSV file **must** contain the following columns:  - `customerprofileid`: The integration ID of the customer profile whose join   date you want to update. - `newjoindate`: The new join date for the customer in RFC3339 format. You   can use the time zone of your choice. It is converted to UTC internally   by Talon.One.  **Note**: - Customer profiles must already exist. If a referenced profile does not exist, the import fails with a `400` error. - If a join date already exists for a profile, the uploaded date replaces it.  > [!note] We recommend limiting your file size to 500 MB.  ## Example  ```csv customerprofileid,newjoindate customer1,2024-03-21T07:32:14Z customer2,2025-04-16T21:12:37Z customer3,2026-05-03T11:47:01Z ``` 
+Upload a CSV file containing customer profile IDs and their join dates for the specified loyalty program. Send the file as multipart data.  > [!important] This endpoint only works with profile-based loyalty programs.  The CSV file **must** contain the following columns:  - `customerprofileid`: The integration ID of the customer profile whose join   date you want to update. - `joindate`: The join date for the customer in RFC3339 format. You   can use the time zone of your choice. It is converted to UTC internally   by Talon.One.  **Note**: - Customer profiles must already exist. If a referenced profile does not exist, the import fails with a `400` error. - If a join date already exists for a profile, the uploaded date replaces it. - If a join date is in the future at the time of the import, the import fails with a `400` error.  > [!note] We recommend limiting your file size to 500 MB.  ## Example  ```csv customerprofileid,joindate customer1,2024-03-21T07:32:14Z customer2,2025-04-16T21:12:37Z customer3,2026-05-03T11:47:01Z ``` 
 
 ### Example
 ```csharp
@@ -13344,7 +13607,7 @@ void (empty response body)
 
 <a name="listaccountcollections"></a>
 # **ListAccountCollections**
-> InlineResponse20022 ListAccountCollections (long? pageSize = null, long? skip = null, string sort = null, bool? withTotalResultSize = null, string name = null)
+> InlineResponse20025 ListAccountCollections (long? pageSize = null, long? skip = null, string sort = null, bool? withTotalResultSize = null, string name = null)
 
 List collections in account
 
@@ -13389,7 +13652,7 @@ namespace Example
             try
             {
                 // List collections in account
-                InlineResponse20022 result = apiInstance.ListAccountCollections(pageSize, skip, sort, withTotalResultSize, name);
+                InlineResponse20025 result = apiInstance.ListAccountCollections(pageSize, skip, sort, withTotalResultSize, name);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -13415,7 +13678,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
@@ -13438,7 +13701,7 @@ Name | Type | Description  | Notes
 
 <a name="listachievements"></a>
 # **ListAchievements**
-> InlineResponse20052 ListAchievements (long applicationId, long campaignId, long? pageSize = null, long? skip = null, string title = null)
+> InlineResponse20055 ListAchievements (long applicationId, long campaignId, long? pageSize = null, long? skip = null, string title = null)
 
 List achievements
 
@@ -13483,7 +13746,7 @@ namespace Example
             try
             {
                 // List achievements
-                InlineResponse20052 result = apiInstance.ListAchievements(applicationId, campaignId, pageSize, skip, title);
+                InlineResponse20055 result = apiInstance.ListAchievements(applicationId, campaignId, pageSize, skip, title);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -13509,7 +13772,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20052**](InlineResponse20052.md)
+[**InlineResponse20055**](InlineResponse20055.md)
 
 ### Authorization
 
@@ -13529,7 +13792,7 @@ Name | Type | Description  | Notes
 
 <a name="listachievementsv2"></a>
 # **ListAchievementsV2**
-> InlineResponse20053 ListAchievementsV2 (long? pageSize = null, long? skip = null, string sort = null, string title = null, long? applicationId = null)
+> InlineResponse20056 ListAchievementsV2 (long? pageSize = null, List<long> campaignId = null, long? skip = null, string sort = null, string title = null, long? applicationId = null)
 
 List achievements
 
@@ -13566,6 +13829,7 @@ namespace Example
 
             var apiInstance = new ManagementApi(config);
             var pageSize = 789;  // long? | The number of items in the response. (optional)  (default to 50)
+            var campaignId = new List<long>(); // List<long> | Filter results by one or more campaign IDs.  To include multiple IDs, repeat the parameter for each one, for example,`?campaignId=123&campaignId=456`. The response contains only achievements associated with the specified campaigns.  (optional) 
             var skip = 789;  // long? | The number of items to skip when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var title = title_example;  // string | Filter by the display name of the achievement. (optional) 
@@ -13574,7 +13838,7 @@ namespace Example
             try
             {
                 // List achievements
-                InlineResponse20053 result = apiInstance.ListAchievementsV2(pageSize, skip, sort, title, applicationId);
+                InlineResponse20056 result = apiInstance.ListAchievementsV2(pageSize, campaignId, skip, sort, title, applicationId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -13593,6 +13857,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **long?**| The number of items in the response. | [optional] [default to 50]
+ **campaignId** | [**List&lt;long&gt;**](long.md)| Filter results by one or more campaign IDs.  To include multiple IDs, repeat the parameter for each one, for example,&#x60;?campaignId&#x3D;123&amp;campaignId&#x3D;456&#x60;. The response contains only achievements associated with the specified campaigns.  | [optional] 
  **skip** | **long?**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **title** | **string**| Filter by the display name of the achievement. | [optional] 
@@ -13600,7 +13865,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20053**](InlineResponse20053.md)
+[**InlineResponse20056**](InlineResponse20056.md)
 
 ### Authorization
 
@@ -13622,11 +13887,11 @@ Name | Type | Description  | Notes
 
 <a name="listallrolesv2"></a>
 # **ListAllRolesV2**
-> InlineResponse20047 ListAllRolesV2 ()
+> InlineResponse20050 ListAllRolesV2 ()
 
 List roles
 
-List all roles.
+List the roles defined in the deployment.  The roles returned depend on the role of the user calling this endpoint: - If the user has an admin role, all roles defined in the deployment are returned. - If the user does not have an admin role, only the roles currently assigned to this user are returned.  If your identity provider provisions roles through SCIM, any admin roles it defines are not included in this list.  To view the details of a specific role, use the [Get role](https://docs.talon.one/management-api#tag/Roles/operation/getRoleV2) endpoint. 
 
 ### Example
 ```csharp
@@ -13662,7 +13927,7 @@ namespace Example
             try
             {
                 // List roles
-                InlineResponse20047 result = apiInstance.ListAllRolesV2();
+                InlineResponse20050 result = apiInstance.ListAllRolesV2();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -13681,7 +13946,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20047**](InlineResponse20047.md)
+[**InlineResponse20050**](InlineResponse20050.md)
 
 ### Authorization
 
@@ -13701,7 +13966,7 @@ This endpoint does not need any parameter.
 
 <a name="listapplicationcartitemfilters"></a>
 # **ListApplicationCartItemFilters**
-> InlineResponse20049 ListApplicationCartItemFilters (long applicationId, long? pageSize = null, long? skip = null, string name = null)
+> InlineResponse20052 ListApplicationCartItemFilters (long applicationId, long? pageSize = null, long? skip = null, string name = null)
 
 List Application cart item filters
 
@@ -13745,7 +14010,7 @@ namespace Example
             try
             {
                 // List Application cart item filters
-                InlineResponse20049 result = apiInstance.ListApplicationCartItemFilters(applicationId, pageSize, skip, name);
+                InlineResponse20052 result = apiInstance.ListApplicationCartItemFilters(applicationId, pageSize, skip, name);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -13770,7 +14035,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20049**](InlineResponse20049.md)
+[**InlineResponse20052**](InlineResponse20052.md)
 
 ### Authorization
 
@@ -13790,7 +14055,7 @@ Name | Type | Description  | Notes
 
 <a name="listcampaignstorebudgetlimits"></a>
 # **ListCampaignStoreBudgetLimits**
-> InlineResponse20050 ListCampaignStoreBudgetLimits (long applicationId, long campaignId, string action = null, string period = null)
+> InlineResponse20053 ListCampaignStoreBudgetLimits (long applicationId, long campaignId, string action = null, string period = null)
 
 List campaign store budget limits
 
@@ -13834,7 +14099,7 @@ namespace Example
             try
             {
                 // List campaign store budget limits
-                InlineResponse20050 result = apiInstance.ListCampaignStoreBudgetLimits(applicationId, campaignId, action, period);
+                InlineResponse20053 result = apiInstance.ListCampaignStoreBudgetLimits(applicationId, campaignId, action, period);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -13859,7 +14124,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20050**](InlineResponse20050.md)
+[**InlineResponse20053**](InlineResponse20053.md)
 
 ### Authorization
 
@@ -13882,7 +14147,7 @@ Name | Type | Description  | Notes
 
 <a name="listcatalogitems"></a>
 # **ListCatalogItems**
-> InlineResponse20040 ListCatalogItems (long catalogId, long? pageSize = null, long? skip = null, bool? withTotalResultSize = null, List<string> sku = null, List<string> productNames = null)
+> InlineResponse20043 ListCatalogItems (long catalogId, long? pageSize = null, long? skip = null, bool? withTotalResultSize = null, List<string> sku = null, List<string> productNames = null)
 
 List items in a catalog
 
@@ -13928,7 +14193,7 @@ namespace Example
             try
             {
                 // List items in a catalog
-                InlineResponse20040 result = apiInstance.ListCatalogItems(catalogId, pageSize, skip, withTotalResultSize, sku, productNames);
+                InlineResponse20043 result = apiInstance.ListCatalogItems(catalogId, pageSize, skip, withTotalResultSize, sku, productNames);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -13955,7 +14220,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20040**](InlineResponse20040.md)
+[**InlineResponse20043**](InlineResponse20043.md)
 
 ### Authorization
 
@@ -13975,7 +14240,7 @@ Name | Type | Description  | Notes
 
 <a name="listcollections"></a>
 # **ListCollections**
-> InlineResponse20022 ListCollections (long applicationId, long campaignId, long? pageSize = null, long? skip = null, string sort = null, bool? withTotalResultSize = null, string name = null)
+> InlineResponse20025 ListCollections (long applicationId, long campaignId, long? pageSize = null, long? skip = null, string sort = null, bool? withTotalResultSize = null, string name = null)
 
 List collections in campaign
 
@@ -14022,7 +14287,7 @@ namespace Example
             try
             {
                 // List collections in campaign
-                InlineResponse20022 result = apiInstance.ListCollections(applicationId, campaignId, pageSize, skip, sort, withTotalResultSize, name);
+                InlineResponse20025 result = apiInstance.ListCollections(applicationId, campaignId, pageSize, skip, sort, withTotalResultSize, name);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -14050,7 +14315,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
@@ -14071,7 +14336,7 @@ Name | Type | Description  | Notes
 
 <a name="listcollectionsinapplication"></a>
 # **ListCollectionsInApplication**
-> InlineResponse20022 ListCollectionsInApplication (long applicationId, long? pageSize = null, long? skip = null, string sort = null, bool? withTotalResultSize = null, string name = null)
+> InlineResponse20025 ListCollectionsInApplication (long applicationId, long? pageSize = null, long? skip = null, string sort = null, bool? withTotalResultSize = null, string name = null)
 
 List collections in Application
 
@@ -14117,7 +14382,7 @@ namespace Example
             try
             {
                 // List collections in Application
-                InlineResponse20022 result = apiInstance.ListCollectionsInApplication(applicationId, pageSize, skip, sort, withTotalResultSize, name);
+                InlineResponse20025 result = apiInstance.ListCollectionsInApplication(applicationId, pageSize, skip, sort, withTotalResultSize, name);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -14144,7 +14409,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
@@ -14165,7 +14430,7 @@ Name | Type | Description  | Notes
 
 <a name="listexperiments"></a>
 # **ListExperiments**
-> InlineResponse20016 ListExperiments (long applicationId, long? pageSize = null, long? skip = null, string sort = null)
+> InlineResponse20018 ListExperiments (long applicationId, long? pageSize = null, long? skip = null, string sort = null)
 
 List experiments
 
@@ -14209,7 +14474,7 @@ namespace Example
             try
             {
                 // List experiments
-                InlineResponse20016 result = apiInstance.ListExperiments(applicationId, pageSize, skip, sort);
+                InlineResponse20018 result = apiInstance.ListExperiments(applicationId, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -14234,7 +14499,98 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**InlineResponse20018**](InlineResponse20018.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listgiveawayspool"></a>
+# **ListGiveawaysPool**
+> InlineResponse20024 ListGiveawaysPool (long? pageSize = null, long? skip = null, string sort = null, bool? withTotalResultSize = null, string applicationIds = null)
+
+List giveaway pools
+
+Retrieve all the giveaway pools for an account.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class ListGiveawaysPoolExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://yourbaseurl.talon.one";
+            // Configure API key authorization: api_key_v1
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: management_key
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: manager_auth
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(config);
+            var pageSize = 789;  // long? | The number of items in the response. (optional)  (default to 1000)
+            var skip = 789;  // long? | The number of items to skip when paging through large result sets. (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
+            var withTotalResultSize = true;  // bool? | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When `true`: `totalResultSize` contains the total number of results for this query. - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page.  (optional) 
+            var applicationIds = applicationIds_example;  // string | Filter by one or more Application IDs, separated by a comma. (optional) 
+
+            try
+            {
+                // List giveaway pools
+                InlineResponse20024 result = apiInstance.ListGiveawaysPool(pageSize, skip, sort, withTotalResultSize, applicationIds);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ManagementApi.ListGiveawaysPool: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pageSize** | **long?**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **long?**| The number of items to skip when paging through large result sets. | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
+ **withTotalResultSize** | **bool?**| When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query. - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page.  | [optional] 
+ **applicationIds** | **string**| Filter by one or more Application IDs, separated by a comma. | [optional] 
+
+### Return type
+
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 
@@ -14254,7 +14610,7 @@ Name | Type | Description  | Notes
 
 <a name="liststores"></a>
 # **ListStores**
-> InlineResponse20048 ListStores (long applicationId, long? pageSize = null, long? skip = null, string sort = null, bool? withTotalResultSize = null, decimal? campaignId = null, string name = null, string integrationId = null, string query = null)
+> InlineResponse20051 ListStores (long applicationId, long? pageSize = null, long? skip = null, string sort = null, bool? withTotalResultSize = null, decimal? campaignId = null, string name = null, string integrationId = null, string query = null)
 
 List stores
 
@@ -14303,7 +14659,7 @@ namespace Example
             try
             {
                 // List stores
-                InlineResponse20048 result = apiInstance.ListStores(applicationId, pageSize, skip, sort, withTotalResultSize, campaignId, name, integrationId, query);
+                InlineResponse20051 result = apiInstance.ListStores(applicationId, pageSize, skip, sort, withTotalResultSize, campaignId, name, integrationId, query);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -14333,7 +14689,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20048**](InlineResponse20048.md)
+[**InlineResponse20051**](InlineResponse20051.md)
 
 ### Authorization
 
@@ -15919,7 +16275,7 @@ Name | Type | Description  | Notes
 
 <a name="searchcouponsadvancedapplicationwidewithouttotalcount"></a>
 # **SearchCouponsAdvancedApplicationWideWithoutTotalCount**
-> InlineResponse20012 SearchCouponsAdvancedApplicationWideWithoutTotalCount (long applicationId, Object body, long? pageSize = null, long? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, long? referralId = null, string recipientIntegrationId = null, string batchId = null, bool? exactMatch = null, string campaignState = null)
+> InlineResponse20014 SearchCouponsAdvancedApplicationWideWithoutTotalCount (long applicationId, Object body, long? pageSize = null, long? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, long? referralId = null, string recipientIntegrationId = null, string batchId = null, bool? exactMatch = null, string campaignState = null)
 
 List coupons that match the given attributes (without total count)
 
@@ -15974,7 +16330,7 @@ namespace Example
             try
             {
                 // List coupons that match the given attributes (without total count)
-                InlineResponse20012 result = apiInstance.SearchCouponsAdvancedApplicationWideWithoutTotalCount(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
+                InlineResponse20014 result = apiInstance.SearchCouponsAdvancedApplicationWideWithoutTotalCount(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -16010,7 +16366,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse20014**](InlineResponse20014.md)
 
 ### Authorization
 
@@ -16030,7 +16386,7 @@ Name | Type | Description  | Notes
 
 <a name="searchcouponsadvancedwithouttotalcount"></a>
 # **SearchCouponsAdvancedWithoutTotalCount**
-> InlineResponse20012 SearchCouponsAdvancedWithoutTotalCount (long applicationId, long campaignId, Object body, long? pageSize = null, long? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, long? referralId = null, string recipientIntegrationId = null, bool? exactMatch = null, string batchId = null)
+> InlineResponse20014 SearchCouponsAdvancedWithoutTotalCount (long applicationId, long campaignId, Object body, long? pageSize = null, long? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, long? referralId = null, string recipientIntegrationId = null, bool? exactMatch = null, string batchId = null)
 
 List coupons that match the given attributes in campaign (without total count)
 
@@ -16085,7 +16441,7 @@ namespace Example
             try
             {
                 // List coupons that match the given attributes in campaign (without total count)
-                InlineResponse20012 result = apiInstance.SearchCouponsAdvancedWithoutTotalCount(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
+                InlineResponse20014 result = apiInstance.SearchCouponsAdvancedWithoutTotalCount(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -16121,7 +16477,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse20014**](InlineResponse20014.md)
 
 ### Authorization
 
@@ -16141,7 +16497,7 @@ Name | Type | Description  | Notes
 
 <a name="summarizecampaignstorebudget"></a>
 # **SummarizeCampaignStoreBudget**
-> InlineResponse20051 SummarizeCampaignStoreBudget (long applicationId, long campaignId)
+> InlineResponse20054 SummarizeCampaignStoreBudget (long applicationId, long campaignId)
 
 Get summary of campaign store budgets
 
@@ -16183,7 +16539,7 @@ namespace Example
             try
             {
                 // Get summary of campaign store budgets
-                InlineResponse20051 result = apiInstance.SummarizeCampaignStoreBudget(applicationId, campaignId);
+                InlineResponse20054 result = apiInstance.SummarizeCampaignStoreBudget(applicationId, campaignId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -16206,7 +16562,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20051**](InlineResponse20051.md)
+[**InlineResponse20054**](InlineResponse20054.md)
 
 ### Authorization
 

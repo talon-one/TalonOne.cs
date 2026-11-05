@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Functions** | [**List&lt;FunctionDef&gt;**](FunctionDef.md) | The functions defined for this application. | 
 **Templates** | [**List&lt;TemplateDef&gt;**](TemplateDef.md) | The templates defined for this application. | 
 **Variables** | **string** | A stringified version of the environment&#39;s Talang variables scope. | 
-**GiveawaysPools** | [**List&lt;GiveawaysPool&gt;**](GiveawaysPool.md) | The giveaways pools that the application is subscribed to. | [optional] 
+**GiveawaysPools** | [**List&lt;GiveawaysPool&gt;**](GiveawaysPool.md) | The giveaway pools that the Application is subscribed to. | [optional] 
 **LoyaltyPrograms** | [**List&lt;LoyaltyProgram&gt;**](LoyaltyProgram.md) | The loyalty programs that the application is subscribed to. | [optional] 
 **Achievements** | [**List&lt;Achievement&gt;**](Achievement.md) | The achievements, linked to the campaigns, belonging to the application. | [optional] 
 **Attributes** | [**List&lt;Attribute&gt;**](Attribute.md) | The attributes that the application is subscribed to. | [optional] 

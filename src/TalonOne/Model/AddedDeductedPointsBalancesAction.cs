@@ -72,7 +72,10 @@ namespace TalonOne.Model
         /// <param name="startDate">The start date for loyalty points..</param>
         /// <param name="expiryDate">The expiration date for loyalty points..</param>
         /// <param name="transactionUUID">The identifier of the transaction in the loyalty ledger. (required).</param>
-        public AddedDeductedPointsBalancesAction(decimal amount = default(decimal), string reason = default(string), OperationEnum operation = default(OperationEnum), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), Guid transactionUUID = default(Guid))
+        /// <param name="created">The timestamp when the loyalty transaction occurred..</param>
+        /// <param name="awaitsActivation">Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date..</param>
+        /// <param name="validityDuration">The duration for which the points remain active, calculated relative to their start date.   **Note**: This only applies to points for which &#x60;AwaitsActivation&#x60; is &#x60;true&#x60; and &#x60;ExpiryDate&#x60; is not set. .</param>
+        public AddedDeductedPointsBalancesAction(decimal amount = default(decimal), string reason = default(string), OperationEnum operation = default(OperationEnum), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), Guid transactionUUID = default(Guid), DateTime created = default(DateTime), bool awaitsActivation = default(bool), string validityDuration = default(string))
         {
             this.Amount = amount;
             // to ensure "reason" is required (not null)
@@ -81,6 +84,9 @@ namespace TalonOne.Model
             this.TransactionUUID = transactionUUID;
             this.StartDate = startDate;
             this.ExpiryDate = expiryDate;
+            this.Created = created;
+            this.AwaitsActivation = awaitsActivation;
+            this.ValidityDuration = validityDuration;
         }
         
         /// <summary>
@@ -119,6 +125,27 @@ namespace TalonOne.Model
         public Guid TransactionUUID { get; set; }
 
         /// <summary>
+        /// The timestamp when the loyalty transaction occurred.
+        /// </summary>
+        /// <value>The timestamp when the loyalty transaction occurred.</value>
+        [DataMember(Name="Created", EmitDefaultValue=false)]
+        public DateTime Created { get; set; }
+
+        /// <summary>
+        /// Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.
+        /// </summary>
+        /// <value>Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.</value>
+        [DataMember(Name="AwaitsActivation", EmitDefaultValue=false)]
+        public bool AwaitsActivation { get; set; }
+
+        /// <summary>
+        /// The duration for which the points remain active, calculated relative to their start date.   **Note**: This only applies to points for which &#x60;AwaitsActivation&#x60; is &#x60;true&#x60; and &#x60;ExpiryDate&#x60; is not set. 
+        /// </summary>
+        /// <value>The duration for which the points remain active, calculated relative to their start date.   **Note**: This only applies to points for which &#x60;AwaitsActivation&#x60; is &#x60;true&#x60; and &#x60;ExpiryDate&#x60; is not set. </value>
+        [DataMember(Name="ValidityDuration", EmitDefaultValue=false)]
+        public string ValidityDuration { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -132,6 +159,9 @@ namespace TalonOne.Model
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
             sb.Append("  TransactionUUID: ").Append(TransactionUUID).Append("\n");
+            sb.Append("  Created: ").Append(Created).Append("\n");
+            sb.Append("  AwaitsActivation: ").Append(AwaitsActivation).Append("\n");
+            sb.Append("  ValidityDuration: ").Append(ValidityDuration).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -193,6 +223,20 @@ namespace TalonOne.Model
                     this.TransactionUUID == input.TransactionUUID ||
                     (this.TransactionUUID != null &&
                     this.TransactionUUID.Equals(input.TransactionUUID))
+                ) && 
+                (
+                    this.Created == input.Created ||
+                    (this.Created != null &&
+                    this.Created.Equals(input.Created))
+                ) && 
+                (
+                    this.AwaitsActivation == input.AwaitsActivation ||
+                    this.AwaitsActivation.Equals(input.AwaitsActivation)
+                ) && 
+                (
+                    this.ValidityDuration == input.ValidityDuration ||
+                    (this.ValidityDuration != null &&
+                    this.ValidityDuration.Equals(input.ValidityDuration))
                 );
         }
 
@@ -215,6 +259,11 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.ExpiryDate.GetHashCode();
                 if (this.TransactionUUID != null)
                     hashCode = hashCode * 59 + this.TransactionUUID.GetHashCode();
+                if (this.Created != null)
+                    hashCode = hashCode * 59 + this.Created.GetHashCode();
+                hashCode = hashCode * 59 + this.AwaitsActivation.GetHashCode();
+                if (this.ValidityDuration != null)
+                    hashCode = hashCode * 59 + this.ValidityDuration.GetHashCode();
                 return hashCode;
             }
         }

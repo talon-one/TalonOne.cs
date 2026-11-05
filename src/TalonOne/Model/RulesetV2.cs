@@ -41,11 +41,15 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="promotionRules">Set of promotion rules. (required).</param>
         /// <param name="strikethroughRules">Set of strikethrough rules..</param>
-        public RulesetV2(List<RuleV2> promotionRules = default(List<RuleV2>), List<RuleV2> strikethroughRules = default(List<RuleV2>))
+        /// <param name="bundles">Variable bindings of type bundle..</param>
+        /// <param name="parameters">Variable bindings of type template parameter..</param>
+        public RulesetV2(List<RuleV2> promotionRules = default(List<RuleV2>), List<RuleV2> strikethroughRules = default(List<RuleV2>), List<Bundle> bundles = default(List<Bundle>), List<TemplateParameter> parameters = default(List<TemplateParameter>))
         {
             // to ensure "promotionRules" is required (not null)
             this.PromotionRules = promotionRules ?? throw new ArgumentNullException("promotionRules is a required property for RulesetV2 and cannot be null");
             this.StrikethroughRules = strikethroughRules;
+            this.Bundles = bundles;
+            this.Parameters = parameters;
         }
         
         /// <summary>
@@ -116,14 +120,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Variable bindings of type bundle.</value>
         [DataMember(Name="bundles", EmitDefaultValue=false)]
-        public List<Bundle> Bundles { get; private set; }
+        public List<Bundle> Bundles { get; set; }
 
         /// <summary>
         /// Variable bindings of type template parameter.
         /// </summary>
         /// <value>Variable bindings of type template parameter.</value>
         [DataMember(Name="parameters", EmitDefaultValue=false)]
-        public List<TemplateParameter> Parameters { get; private set; }
+        public List<TemplateParameter> Parameters { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
