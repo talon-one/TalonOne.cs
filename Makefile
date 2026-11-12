@@ -23,7 +23,7 @@ endif
 				--configuration Release \
 				--include-source
 
-publish: pack
+publish:
 ifeq ($(VERSION),)
 	@echo "***\033[0;31mERROR:\033[0m NO VERSION COULD BE EXTRACTED. Check out the AssemblyInfo.cs file"
 	@exit 1
